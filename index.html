@@ -20,7 +20,7 @@
 :root{
   --bg:#05060f; --bg2:#0a0c1d; --panel:#0e1126; --panel2:#12152e;
   --line:rgba(255,255,255,.09); --txt:#eef0ff; --muted:#a7abd0;
-  --gold:#f5c542; --gold2:#ffdf8e; --violet:#7c5cff; --green:#2ee6a8;
+  --gold:#f5c542; --gold2:#ffdf8e; --violet:#7c5cff; --green:#2ee6a8; --red:#ff5d5d;
   --radius:18px; --max:1200px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -31,8 +31,6 @@ a{color:inherit}
 img{max-width:100%;display:block}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
 ::selection{background:var(--gold);color:#111}
-
-/* ---------- background layers ---------- */
 #gl{position:fixed;inset:0;z-index:0;pointer-events:none}
 .bg-glow{position:fixed;inset:0;z-index:0;pointer-events:none;background:
   radial-gradient(900px 500px at 85% -5%, rgba(124,92,255,.20), transparent 60%),
@@ -44,18 +42,16 @@ img{max-width:100%;display:block}
   -webkit-mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 30%,transparent 75%);
           mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 30%,transparent 75%)}
 main,footer,header{position:relative;z-index:2}
-
-/* ---------- header ---------- */
-header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s}
-header.scrolled{background:rgba(5,6,15,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .3s,border-color .3s}
+header.scrolled{background:rgba(5,6,15,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:var(--max);margin:0 auto;padding:0 22px}
 .logo{display:flex;align-items:center;gap:11px;text-decoration:none;font-family:'Space Grotesk';font-weight:700;letter-spacing:.14em;font-size:17px}
 .logo .gem{width:30px;height:30px;flex:none;filter:drop-shadow(0 0 12px rgba(245,197,66,.55))}
 .logo small{display:block;font-size:9px;letter-spacing:.34em;color:var(--gold);font-weight:600}
-.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links{display:flex;gap:28px;align-items:center}
 .nav-links a{text-decoration:none;color:var(--muted);font-size:14.5px;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:#fff}
-.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:15px;padding:12px 22px;border-radius:999px;border:1px solid transparent;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:15px;padding:12px 22px;border-radius:999px;border:1px solid transparent;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;font-family:'Inter'}
 .btn:active{transform:scale(.97)}
 .btn-gold{background:linear-gradient(135deg,var(--gold),#e8a90c);color:#161006;box-shadow:0 8px 28px rgba(245,197,66,.28)}
 .btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(245,197,66,.36)}
@@ -63,14 +59,12 @@ header.scrolled{background:rgba(5,6,15,.82);backdrop-filter:blur(14px);border-bo
 .btn-ghost:hover{background:rgba(255,255,255,.09);transform:translateY(-2px)}
 .btn-sm{padding:9px 18px;font-size:14px}
 .burger{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
-@media(max-width:860px){
+@media(max-width:900px){
   .nav-links{position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;padding:10px 22px 18px;background:rgba(5,6,15,.97);border-bottom:1px solid var(--line);display:none}
   .nav-links.open{display:flex}
   .nav-links a{padding:10px 0;width:100%}
   .burger{display:block}
 }
-
-/* ---------- hero ---------- */
 .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:150px 0 90px;text-align:center;position:relative}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;margin:0 auto 26px;padding:8px 18px;border:1px solid rgba(245,197,66,.35);border-radius:999px;background:rgba(245,197,66,.06);color:var(--gold2);font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
 .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:pulse 2s infinite}
@@ -93,22 +87,16 @@ header.scrolled{background:rgba(5,6,15,.82);backdrop-filter:blur(14px);border-bo
 .scroll-hint{margin:56px auto 0;color:var(--muted);font-size:12px;letter-spacing:.3em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px}
 .scroll-hint::after{content:"";width:1px;height:44px;background:linear-gradient(var(--gold),transparent);animation:drip 1.8s infinite}
 @keyframes drip{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-
-/* ---------- marquee ---------- */
 .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(10,12,29,.6);overflow:hidden;padding:15px 0;position:relative;z-index:2}
 .marquee .track{display:flex;gap:52px;width:max-content;animation:mq 30s linear infinite;font-family:'Space Grotesk';font-weight:600;letter-spacing:.22em;font-size:13.5px;color:var(--muted);white-space:nowrap}
 .marquee .track b{color:var(--gold)}
 @keyframes mq{to{transform:translateX(-50%)}}
-
-/* ---------- sections ---------- */
 section{padding:110px 0}
 .kicker{color:var(--gold);font-weight:700;letter-spacing:.26em;font-size:12.5px;text-transform:uppercase;text-align:center}
-.sec-title{font-size:clamp(30px,4.6vw,48px);text-align:center;line-height:1.12;margin:14px auto 12px;max-width:760px}
-.sec-sub{text-align:center;color:var(--muted);max-width:640px;margin:0 auto;font-size:16.5px}
+.sec-title{font-size:clamp(30px,4.6vw,48px);text-align:center;line-height:1.12;margin:14px auto 12px;max-width:780px}
+.sec-sub{text-align:center;color:var(--muted);max-width:660px;margin:0 auto;font-size:16.5px}
 .reveal{opacity:0;transform:translateY(34px)}
 .no-motion .reveal{opacity:1;transform:none}
-
-/* flagship */
 .flagship{margin-top:56px;display:grid;grid-template-columns:1.25fr .85fr;gap:26px;align-items:stretch}
 @media(max-width:900px){.flagship{grid-template-columns:1fr}}
 .panel{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:22px;padding:36px;position:relative;overflow:hidden}
@@ -119,7 +107,7 @@ section{padding:110px 0}
 .tagrow{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
 .tag{font-size:13px;font-weight:600;padding:7px 13px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:#dfe2ff}
 .tag b{color:var(--gold)}
-.price-card{display:flex;flex-direction:column;justify-content:center;text-align:left}
+.price-card{display:flex;flex-direction:column;justify-content:center}
 .price-card .was{color:var(--muted);font-size:14.5px}
 .price-card .now{font-family:'Space Grotesk';font-size:56px;font-weight:700;line-height:1;color:#fff}
 .price-card .now small{font-size:17px;color:var(--gold);font-weight:600}
@@ -130,30 +118,85 @@ section{padding:110px 0}
 .free-note{margin-top:14px;font-size:13.5px;color:var(--muted);text-align:center}
 .free-note a{color:var(--gold);font-weight:600}
 
-/* filters + grid */
-.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:48px 0 40px}
+/* ======== cover ribbon (3D river of products) ======== */
+.ribbon{overflow:hidden;padding:26px 0 6px;perspective:1100px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.ribbon-track{display:flex;gap:22px;width:max-content;transform:rotateX(14deg);transform-style:preserve-3d;animation:mq 46s linear infinite}
+.ribbon:hover .ribbon-track{animation-play-state:paused}
+.ribbon figure{width:250px;flex:none;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 22px 44px rgba(0,0,0,.55);position:relative;cursor:pointer;background:#0a0c1d}
+.ribbon figure img{aspect-ratio:16/9;object-fit:cover;width:100%}
+.ribbon figcaption{position:absolute;left:0;right:0;bottom:0;padding:20px 13px 9px;font-size:12.5px;font-weight:600;background:linear-gradient(transparent,rgba(5,6,15,.88));display:flex;justify-content:space-between;gap:8px}
+.ribbon figcaption b{color:var(--gold);font-family:'Space Grotesk'}
+
+/* ======== 3D universe ======== */
+.universe{margin-top:52px;border:1px solid var(--line);border-radius:26px;overflow:hidden;background:radial-gradient(900px 420px at 50% -10%,rgba(124,92,255,.14),transparent 60%),linear-gradient(180deg,#0a0c1f,#07081a);position:relative}
+#gl2{display:block;width:100%;height:520px;cursor:grab;touch-action:pan-y}
+#gl2:active{cursor:grabbing}
+@media(max-width:640px){#gl2{height:400px}}
+.uni-bar{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:16px 22px;border-top:1px solid var(--line);background:rgba(5,6,15,.5)}
+.uni-bar .sel{font-size:14.5px;color:var(--muted)}
+.uni-bar .sel b{color:#fff;font-family:'Space Grotesk';font-size:16px}
+.uni-hint{font-size:12.5px;color:#6d7199;letter-spacing:.06em}
+
+/* ======== filters / search / grid ======== */
+.shop-tools{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:48px 0 18px}
+.searchbox{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:999px;padding:10px 18px;min-width:min(340px,88vw)}
+.searchbox input{background:none;border:0;outline:0;color:#fff;font-size:14.5px;font-family:'Inter';width:100%}
+.searchbox input::placeholder{color:#6d7199}
+.sortsel{background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--txt);border-radius:999px;padding:10px 16px;font-family:'Inter';font-size:14px;font-weight:600;cursor:pointer}
+.sortsel option{background:#12152e}
+.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:6px 0 40px}
 .fbtn{padding:10px 20px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted);font-weight:600;font-size:14px;cursor:pointer;transition:all .2s;font-family:'Inter'}
 .fbtn:hover{color:#fff;border-color:rgba(255,255,255,.25)}
 .fbtn.active{background:linear-gradient(135deg,var(--gold),#e8a90c);color:#161006;border-color:transparent}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 @media(max-width:1020px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.grid{grid-template-columns:1fr}}
-.card{background:linear-gradient(165deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s,box-shadow .25s;transform-style:preserve-3d;will-change:transform}
+.card{background:linear-gradient(165deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s,box-shadow .25s;will-change:transform}
 .card:hover{border-color:rgba(245,197,66,.45);box-shadow:0 24px 50px rgba(0,0,0,.5)}
-.card .cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0a0c1d}
-.card .cover img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.card:hover .cover img{transform:scale(1.06)}
-.card .cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,6,15,.55))}
+.stage{position:relative;aspect-ratio:16/9;overflow:hidden;background:#0a0c1d;perspective:700px}
+.stage .layer{position:absolute;inset:0;transform-style:preserve-3d}
+.stage img{width:100%;height:100%;object-fit:cover}
+.stage .fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:linear-gradient(140deg,#191238,#0d0c1e 60%);text-align:center;padding:14px}
+.stage .fallback .fg{font-size:30px;color:var(--gold)}
+.stage .fallback b{font-family:'Space Grotesk';font-size:19px;line-height:1.25}
+.stage .fallback span{color:var(--muted);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase}
+.stage .glare{position:absolute;inset:-40%;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.22),transparent 42%);opacity:0;transition:opacity .25s;pointer-events:none;z-index:2}
+.card:hover .stage .glare{opacity:1}
+.stage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,6,15,.5));pointer-events:none}
 .price-badge{position:absolute;top:12px;right:12px;z-index:3;background:rgba(5,6,15,.82);backdrop-filter:blur(6px);border:1px solid rgba(245,197,66,.5);color:var(--gold);font-family:'Space Grotesk';font-weight:700;font-size:16px;padding:6px 13px;border-radius:999px}
-.price-badge.free{border-color:rgba(46,230,168,.55);color:var(--green)}
-.card .body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
-.card .cat{font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--violet);margin-bottom:7px}
+.hot-badge{position:absolute;top:12px;left:12px;z-index:3;background:linear-gradient(135deg,var(--gold),#e8a90c);color:#161006;font-size:11px;font-weight:800;letter-spacing:.1em;padding:6px 11px;border-radius:999px;text-transform:uppercase}
+.card .body{padding:22px;display:flex;flex-direction:column;flex:1}
+.card .cat{font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9d8bff;margin-bottom:7px}
 .card h3{font-size:20.5px;line-height:1.25;margin-bottom:8px}
 .card p{color:var(--muted);font-size:14.5px;flex:1}
-.card .foot{display:flex;align-items:center;justify-content:space-between;margin-top:20px;gap:10px}
+.card .foot{display:flex;align-items:center;justify-content:space-between;margin-top:20px;gap:8px;flex-wrap:wrap}
 .card .own{font-size:12.5px;color:var(--muted)}
 .card .own b{color:var(--green);font-weight:600}
-.mini-btn{padding:10px 18px;font-size:14px}
+.mini-btn{padding:10px 16px;font-size:13.5px}
+.qv-btn{background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--txt);padding:10px 16px;border-radius:999px;font-weight:600;font-size:13.5px;cursor:pointer;font-family:'Inter';transition:all .2s}
+.qv-btn:hover{border-color:rgba(245,197,66,.55);color:var(--gold)}
+.noresults{grid-column:1/-1;text-align:center;color:var(--muted);padding:44px 0;font-size:16px}
+
+/* ======== spotlight ======== */
+.spotlight{margin-top:56px;border:1px solid var(--line);border-radius:26px;background:linear-gradient(150deg,var(--panel2),#0a0c1f);overflow:hidden;display:grid;grid-template-columns:1.05fr .95fr;min-height:380px}
+@media(max-width:900px){.spotlight{grid-template-columns:1fr}}
+.spot-stage{position:relative;perspective:1000px;display:flex;align-items:center;justify-content:center;padding:38px;background:radial-gradient(420px 300px at 50% 45%,rgba(245,197,66,.13),transparent 65%)}
+.spot-card3d{width:min(480px,100%);border-radius:18px;overflow:hidden;border:1px solid rgba(245,197,66,.4);box-shadow:0 40px 80px rgba(0,0,0,.6);transform-style:preserve-3d;will-change:transform;background:#0a0c1d}
+.spot-card3d img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.spot-info{padding:42px 40px;display:flex;flex-direction:column;justify-content:center}
+@media(max-width:900px){.spot-info{padding:30px 26px 38px}}
+.spot-info .cat{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#9d8bff}
+.spot-info h3{font-size:clamp(26px,3.4vw,36px);line-height:1.12;margin:10px 0 10px}
+.spot-info p{color:var(--muted);font-size:15.5px}
+.spot-info ul{list-style:none;margin:18px 0 24px;color:#dfe2ff;font-size:14.5px}
+.spot-info li{padding:4px 0 4px 25px;position:relative}
+.spot-info li::before{content:"◆";position:absolute;left:0;color:var(--gold);font-size:11px;top:8px}
+.spot-price{display:flex;align-items:baseline;gap:12px;margin-bottom:20px}
+.spot-price .now{font-family:'Space Grotesk';font-size:40px;font-weight:700;color:#fff}
+.spot-price .per{color:var(--green);font-weight:600;font-size:14px}
+.spot-dots{display:flex;gap:8px;margin-top:26px}
+.spot-dots button{width:34px;height:5px;border-radius:99px;border:0;background:rgba(255,255,255,.16);cursor:pointer;transition:background .3s;padding:0}
+.spot-dots button.active{background:var(--gold)}
 
 /* bundle */
 .bundle{background:linear-gradient(150deg,#171106,#0d0c1e 55%);border:1px solid rgba(245,197,66,.35);border-radius:26px;padding:52px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;position:relative;overflow:hidden}
@@ -167,9 +210,7 @@ section{padding:110px 0}
 .bundle .deal .was{color:var(--muted);text-decoration:line-through;font-size:19px}
 .bundle .deal .now{font-family:'Space Grotesk';font-size:58px;font-weight:700;color:var(--gold);line-height:1.05}
 .bundle .deal .cap{color:var(--muted);font-size:13.5px;margin:6px 0 22px}
-.seats{display:inline-block;background:rgba(245,80,80,.14);border:1px solid rgba(245,80,80,.45);color:#ff9c9c;font-size:12.5px;font-weight:700;letter-spacing:.08em;padding:6px 13px;border-radius:999px;margin-bottom:16px;text-transform:uppercase}
-
-/* pillars */
+.seats{display:inline-block;background:rgba(255,93,93,.13);border:1px solid rgba(255,93,93,.45);color:#ff9c9c;font-size:12.5px;font-weight:700;letter-spacing:.08em;padding:6px 13px;border-radius:999px;margin-bottom:16px;text-transform:uppercase}
 .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:54px}
 @media(max-width:1020px){.pillars{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.pillars{grid-template-columns:1fr}}
@@ -179,15 +220,34 @@ section{padding:110px 0}
 .pillar h3{font-size:18.5px;margin-bottom:8px}
 .pillar p{color:var(--muted);font-size:14.5px}
 
-/* free tools */
+/* comparison table */
+.cmp{margin-top:54px;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:rgba(10,12,29,.65)}
+.cmp table{width:100%;border-collapse:collapse;font-size:15px;min-width:640px}
+.cmp .scrollx{overflow-x:auto}
+.cmp th,.cmp td{padding:16px 20px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.cmp thead th{font-family:'Space Grotesk';font-size:16.5px;background:rgba(255,255,255,.03)}
+.cmp thead th.onyx{color:var(--gold)}
+.cmp td{color:var(--muted)}
+.cmp td:first-child{color:#fff;font-weight:600}
+.cmp td.onyx{color:#fff;background:rgba(245,197,66,.05)}
+.cmp .yes{color:var(--green);font-weight:700}
+.cmp .no{color:var(--red);font-weight:700}
+.cmp tbody tr:last-child td{border-bottom:0}
+
+/* process */
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:54px;counter-reset:step}
+@media(max-width:1020px){.process{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.process{grid-template-columns:1fr}}
+.step{background:rgba(14,17,38,.66);border:1px solid var(--line);border-radius:20px;padding:28px 24px;position:relative;overflow:hidden}
+.step::before{counter-increment:step;content:"0" counter(step);position:absolute;top:6px;right:16px;font-family:'Space Grotesk';font-size:52px;font-weight:700;color:rgba(245,197,66,.13)}
+.step h3{font-size:18px;margin-bottom:8px}
+.step p{color:var(--muted);font-size:14.5px}
 .free-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:54px}
 @media(max-width:820px){.free-grid{grid-template-columns:1fr}}
 .free-card{border:1px solid rgba(46,230,168,.3);background:linear-gradient(160deg,rgba(46,230,168,.07),var(--panel));border-radius:22px;padding:34px}
 .free-card h3{font-size:24px;margin-bottom:8px}
 .free-card h3 span{color:var(--green)}
 .free-card p{color:var(--muted);font-size:15px;margin-bottom:22px}
-
-/* channels */
 .channels{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:54px}
 @media(max-width:820px){.channels{grid-template-columns:1fr}}
 .chan{border:1px solid var(--line);border-radius:22px;padding:34px;background:rgba(14,17,38,.66);text-decoration:none;display:block;transition:transform .25s,border-color .25s}
@@ -196,8 +256,6 @@ section{padding:110px 0}
 .chan h3{font-size:23px;margin-bottom:7px}
 .chan p{color:var(--muted);font-size:15px}
 .chan .go{color:var(--gold);font-weight:600;font-size:14.5px;display:inline-block;margin-top:16px}
-
-/* faq */
 .faq{max-width:820px;margin:50px auto 0}
 .faq details{border:1px solid var(--line);border-radius:14px;background:rgba(14,17,38,.6);margin-bottom:12px;overflow:hidden}
 .faq summary{cursor:pointer;padding:19px 22px;font-weight:600;font-size:16px;list-style:none;display:flex;justify-content:space-between;align-items:center}
@@ -205,8 +263,6 @@ section{padding:110px 0}
 .faq summary::after{content:"+";color:var(--gold);font-size:22px;font-weight:400}
 .faq details[open ] summary::after{content:"–"}
 .faq .a{padding:0 22px 20px;color:var(--muted);font-size:15px}
-
-/* about + footer */
 .about{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;max-width:880px;margin:54px auto 0;background:rgba(14,17,38,.66);border:1px solid var(--line);border-radius:24px;padding:38px}
 @media(max-width:700px){.about{grid-template-columns:1fr;text-align:center;justify-items:center}}
 .about .avatar{width:128px;height:128px;border-radius:32px;background:linear-gradient(140deg,var(--gold),#8a5cff);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;font-size:42px;color:#12101e;box-shadow:0 18px 40px rgba(0,0,0,.45)}
@@ -221,6 +277,27 @@ footer a{display:block;color:var(--muted);text-decoration:none;font-size:14.5px;
 footer a:hover{color:var(--gold)}
 footer .blurb{color:var(--muted);font-size:14.5px;max-width:300px;margin-top:12px}
 .copyright{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#6d7199;font-size:13px}
+
+/* ======== quick-view modal ======== */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal .backdrop{position:absolute;inset:0;background:rgba(3,4,10,.78);backdrop-filter:blur(8px)}
+.modal .box{position:relative;width:min(920px,100%);max-height:90svh;overflow:auto;background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid rgba(245,197,66,.35);border-radius:24px;display:grid;grid-template-columns:1.1fr .9fr;box-shadow:0 50px 110px rgba(0,0,0,.65)}
+@media(max-width:780px){.modal .box{grid-template-columns:1fr}}
+.modal .mstage{perspective:900px;display:flex;align-items:center;justify-content:center;padding:30px;background:radial-gradient(380px 260px at 50% 45%,rgba(245,197,66,.14),transparent 65%)}
+.modal .mcard{width:100%;border-radius:16px;overflow:hidden;border:1px solid rgba(245,197,66,.4);box-shadow:0 34px 70px rgba(0,0,0,.6);will-change:transform;background:#0a0c1d}
+.modal .mcard img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.modal .minfo{padding:32px 30px}
+.modal .minfo .cat{font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9d8bff}
+.modal .minfo h3{font-size:27px;line-height:1.15;margin:8px 0 10px}
+.modal .minfo p{color:var(--muted);font-size:15px}
+.modal .minfo ul{list-style:none;margin:16px 0 20px;font-size:14.5px;color:#dfe2ff}
+.modal .minfo li{padding:4px 0 4px 25px;position:relative}
+.modal .minfo li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+.modal .mprice{display:flex;align-items:baseline;gap:10px;margin-bottom:20px}
+.modal .mprice .now{font-family:'Space Grotesk';font-size:38px;font-weight:700}
+.modal .mprice .per{color:var(--green);font-weight:600;font-size:13.5px}
+.modal .x{position:absolute;top:12px;right:12px;z-index:5;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:rgba(5,6,15,.7);color:#fff;font-size:18px;cursor:pointer}
 </style>
 </head>
 <body>
@@ -237,10 +314,10 @@ footer .blurb{color:var(--muted);font-size:14.5px;max-width:300px;margin-top:12p
     <button class="burger" id="burger" aria-label="Menu">☰</button>
     <div class="nav-links" id="navLinks">
       <a href="#onyxiq">OnyxIQ</a>
+      <a href="#universe">3D Universe</a>
       <a href="#products">Products</a>
       <a href="#bundle">Bundle</a>
       <a href="#free">Free Tools</a>
-      <a href="#channels">Channels</a>
       <a href="#faq">FAQ</a>
       <a class="btn btn-gold btn-sm" href="https://onyxailabs.gumroad.com" target="_blank" rel="noopener">Visit the Store</a>
     </div>
@@ -256,7 +333,7 @@ footer .blurb{color:var(--muted);font-size:14.5px;max-width:300px;margin-top:12p
       <h1>Software you <span class="gold">buy once</span><br>and <span class="stroke">own forever.</span></h1>
       <p class="sub">Onyx AI Labs builds professional tools for creators, freelancers and small businesses — a YouTube growth studio, WhatsApp &amp; AI-agent automation kits, and self-hosted business software. No subscriptions. No servers holding your data. Ever.</p>
       <div class="hero-cta">
-        <a class="btn btn-gold" href="#products">Browse all products ↓</a>
+        <a class="btn btn-gold" href="#products">Enter the product universe ↓</a>
         <a class="btn btn-ghost" href="https://onyxailabs.gumroad.com/l/onyxiq-basic" target="_blank" rel="noopener">Get OnyxIQ Basic — FREE</a>
       </div>
       <div class="hero-stats">
@@ -278,6 +355,9 @@ footer .blurb{color:var(--muted);font-size:14.5px;max-width:300px;margin-top:12p
       <span>PAY ONCE <b>◆</b> OWN FOREVER</span><span>NO SUBSCRIPTIONS <b>◆</b></span><span>YOUR DATA STAYS YOURS <b>◆</b></span><span>FULL SOURCE INCLUDED <b>◆</b></span><span>14-DAY GUARANTEE <b>◆</b></span><span>START-HERE GUIDE IN EVERY BOX <b>◆</b></span>
     </div>
   </div>
+
+  <!-- cover ribbon -->
+  <div class="ribbon" aria-hidden="true"><div class="ribbon-track" id="ribbonTrack"></div></div>
 
   <!-- ================= ONYXIQ ================= -->
   <section id="onyxiq">
@@ -317,12 +397,37 @@ footer .blurb{color:var(--muted);font-size:14.5px;max-width:300px;margin-top:12p
     </div>
   </section>
 
+  <!-- ================= 3D UNIVERSE ================= -->
+  <section id="universe" style="padding-top:30px">
+    <div class="wrap">
+      <div class="kicker reveal">Interactive 3D</div>
+      <h2 class="sec-title reveal">The Product Universe</h2>
+      <p class="sec-sub reveal">Every Onyx tool, floating in one 3D space. Drag to orbit the universe — click any product to open it.</p>
+      <div class="universe reveal">
+        <canvas id="gl2"></canvas>
+        <div class="uni-bar">
+          <div class="sel" id="uniSel">Selected: <b>— drag to explore —</b></div>
+          <div class="uni-hint">DRAG TO ORBIT · SCROLL TO ZOOM · CLICK A PRODUCT</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= PRODUCTS ================= -->
-  <section id="products" style="padding-top:40px">
+  <section id="products" style="padding-top:60px">
     <div class="wrap">
       <div class="kicker reveal">The library</div>
       <h2 class="sec-title reveal">Every product. One payment each.</h2>
-      <p class="sec-sub reveal">Complete software with full source files and a step-by-step START-HERE guide in every box. Built to run on infrastructure you control — that's the whole philosophy.</p>
+      <p class="sec-sub reveal">Complete software with full source files and a step-by-step START-HERE guide in every box. Hover any card — every product lives in 3D here. Click “3D View” for the full showcase.</p>
+      <div class="shop-tools reveal">
+        <label class="searchbox">🔍 <input id="search" type="search" placeholder="Search products… (try “whatsapp”, “erp”, “pdf”)" aria-label="Search products"></label>
+        <select class="sortsel" id="sort" aria-label="Sort products">
+          <option value="featured">Sort: Featured</option>
+          <option value="low">Price: Low → High</option>
+          <option value="high">Price: High → Low</option>
+          <option value="az">Name: A → Z</option>
+        </select>
+      </div>
       <div class="filters reveal" id="filters">
         <button class="fbtn active" data-filter="all">All products</button>
         <button class="fbtn" data-filter="ai">AI &amp; Productivity</button>
@@ -330,6 +435,20 @@ footer .blurb{color:var(--muted);font-size:14.5px;max-width:300px;margin-top:12p
         <button class="fbtn" data-filter="biz">Business Software</button>
       </div>
       <div class="grid" id="grid"></div>
+
+      <!-- spotlight -->
+      <div class="spotlight reveal" id="spotlight">
+        <div class="spot-stage"><div class="spot-card3d" id="spotCard"></div></div>
+        <div class="spot-info">
+          <div class="cat" id="spotCat"></div>
+          <h3 id="spotName"></h3>
+          <p id="spotDesc"></p>
+          <ul id="spotFeats"></ul>
+          <div class="spot-price"><span class="now" id="spotPrice"></span><span class="per">ONE-TIME · OWN FOREVER</span></div>
+          <div><a class="btn btn-gold" id="spotBtn" href="#" target="_blank" rel="noopener">View product</a></div>
+          <div class="spot-dots" id="spotDots"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -355,7 +474,7 @@ footer .blurb{color:var(--muted);font-size:14.5px;max-width:300px;margin-top:12p
     </div>
   </section>
 
-  <!-- ================= WHY ================= -->
+  <!-- ================= WHY + COMPARISON ================= -->
   <section id="why" style="padding-top:30px">
     <div class="wrap">
       <div class="kicker reveal">Why Onyx</div>
@@ -365,6 +484,37 @@ footer .blurb{color:var(--muted);font-size:14.5px;max-width:300px;margin-top:12p
         <div class="pillar reveal"><div class="ic">🔒</div><h3>Privacy by architecture</h3><p>Our tools run on your computer or your server. There are no Onyx servers in the loop, so your data can't leak from a place it never goes.</p></div>
         <div class="pillar reveal"><div class="ic">📦</div><h3>Complete, not crippled</h3><p>Full source files and a START-HERE setup guide in every box. No feature hostage tiers, no "contact sales" — what you see is the whole product.</p></div>
         <div class="pillar reveal"><div class="ic">🛡️</div><h3>14-day guarantee</h3><p>Every product carries a 14-day money-back guarantee. If it isn't for you, one email gets a full refund — no forms, no interrogation.</p></div>
+      </div>
+
+      <h2 class="sec-title reveal" style="margin-top:90px">The honest comparison</h2>
+      <p class="sec-sub reveal">Our flagship against the subscription tools it replaces — using their own published pricing.</p>
+      <div class="cmp reveal"><div class="scrollx">
+        <table>
+          <thead><tr><th></th><th class="onyx">OnyxIQ Prime</th><th>TubeBuddy Legend</th><th>vidIQ Boost</th></tr></thead>
+          <tbody>
+            <tr><td>Price</td><td class="onyx"><b>$49 once</b></td><td>$32.99 / month</td><td>$19 / month</td></tr>
+            <tr><td>Cost after 1 year</td><td class="onyx"><b>$49</b></td><td>$395.88</td><td>$228</td></tr>
+            <tr><td>AI features</td><td class="onyx">Unlimited, no credit meter</td><td>Tiered by plan</td><td>Credits that burn &amp; don't roll over</td></tr>
+            <tr><td>Your channel data</td><td class="onyx"><span class="yes">Stays in your browser</span></td><td>On their servers</td><td>On their servers</td></tr>
+            <tr><td>Scores show their math</td><td class="onyx"><span class="yes">Yes — formula + inputs</span></td><td><span class="no">Black box</span></td><td><span class="no">Black box</span></td></tr>
+            <tr><td>Free edition</td><td class="onyx"><span class="yes">Yes — Basic, free forever</span></td><td>Limited free tier</td><td>Limited free tier</td></tr>
+          </tbody>
+        </table>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section id="process" style="padding-top:30px">
+    <div class="wrap">
+      <div class="kicker reveal">How we build</div>
+      <h2 class="sec-title reveal">Nothing here is a mock-up</h2>
+      <p class="sec-sub reveal">Every product on this page went through the same public process — and you can watch most of it happen on our YouTube channel.</p>
+      <div class="process">
+        <div class="step reveal"><h3>Researched in public</h3><p>Every tool starts from a real, searched-for problem — pricing threads, forum pain, subscription fatigue — never from a guess.</p></div>
+        <div class="step reveal"><h3>Built &amp; tested for real</h3><p>The exact code buyers receive is installed, run and verified first. A verification report ships inside every package.</p></div>
+        <div class="step reveal"><h3>Filmed end to end</h3><p>Launch videos record the complete buyer journey — download, install, first run — with nothing hidden and limits stated honestly.</p></div>
+        <div class="step reveal"><h3>Sold once, supported</h3><p>One payment, a START-HERE guide in the box, and a 14-day money-back guarantee on every single product.</p></div>
       </div>
     </div>
   </section>
@@ -474,113 +624,239 @@ footer .blurb{color:var(--muted);font-size:14.5px;max-width:300px;margin-top:12p
   </div>
 </footer>
 
+<!-- ================= QUICK VIEW MODAL ================= -->
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="backdrop" id="modalBg"></div>
+  <div class="box">
+    <button class="x" id="modalX" aria-label="Close">✕</button>
+    <div class="mstage"><div class="mcard" id="modalCard"></div></div>
+    <div class="minfo">
+      <div class="cat" id="mCat"></div>
+      <h3 id="mName"></h3>
+      <p id="mDesc"></p>
+      <ul id="mFeats"></ul>
+      <div class="mprice"><span class="now" id="mPrice"></span><span class="per">ONE-TIME · 14-DAY GUARANTEE</span></div>
+      <a class="btn btn-gold" id="mBtn" href="#" target="_blank" rel="noopener" style="width:100%;justify-content:center">View on Gumroad</a>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
-/* ================= product data (prices/links verified on the live Gumroad store, 2026-10-29) ================= */
+/* ============ product data — prices & links verified on the live Gumroad store, 2026-10-29 ============ */
 const IMG = id => "https://public-files.gumroad.com/" + id;
 const PRODUCTS = [
-  {name:"OnyxIQ — YouTube Growth Studio", cat:"ai", catLabel:"AI & Productivity", price:49,
+  {name:"OnyxIQ — YouTube Growth Studio", short:"OnyxIQ", cat:"ai", catLabel:"AI & Productivity", price:49, hot:"Flagship",
    desc:"Channel & video audits, keyword research, competitor compare and thumbnail feed-testing. The one-time TubeBuddy & vidIQ alternative.",
-   url:"https://onyxailabs.gumroad.com/l/onyxiq", img:null, hot:"Flagship"},
-  {name:"Viral Content Machine", cat:"ai", catLabel:"AI & Productivity", price:49,
+   feats:["Channel X-Ray + Full Checkup with real Analytics charts","Keyword Lab — scores computed from real search results","Thumbnail Feed-Test inside realistic Home/Search feeds","Bulk Suite with forced backup & one-click undo"],
+   url:"https://onyxailabs.gumroad.com/l/onyxiq", img:null},
+  {name:"Viral Content Machine", short:"Viral Content Machine", cat:"ai", catLabel:"AI & Productivity", price:49,
    desc:"One topic in → a week of content out. A 28-node n8n system with Hook Lab, Trend Radar and a self-publishing queue for 5 platforms.",
+   feats:["Hook Lab — 10 hooks per topic, each virality-scored","Trend Radar + scripts for TikTok, Reels & Shorts","Content queue with scheduled drip publishing","English / Urdu / Hindi toggle"],
    url:"https://onyxailabs.gumroad.com/l/viral-content-machine", img:IMG("pj8xkjaffka45ml2s20183stlp97")},
-  {name:"PrivateSuite", cat:"ai", catLabel:"AI & Productivity", price:39,
+  {name:"PrivateSuite", short:"PrivateSuite", cat:"ai", catLabel:"AI & Productivity", price:39,
    desc:"Private AI meeting notetaker + spend tracker in one suite. Recording, transcription and summaries that never upload your data.",
+   feats:["In-browser recording with live transcription","AI summaries with YOUR key — cost shown before every run","Consent Ledger + Privacy Proof panel (zero network requests)","Meeting Vault with search, tags & Markdown export"],
    url:"https://onyxailabs.gumroad.com/l/privatesuite", img:IMG("qosz3y35moovl7lv5jyf0b68xqoo")},
-  {name:"EmoSense B2B", cat:"ai", catLabel:"AI & Productivity", price:49,
+  {name:"EmoSense B2B", short:"EmoSense B2B", cat:"ai", catLabel:"AI & Productivity", price:49,
    desc:"Customer emotion analytics dashboard that runs 100% in the browser — sentiment, emotions, intent and action items from your feedback.",
+   feats:["Sentiment, emotion, persona & intent per customer message","Emotion map (valence × arousal) + KPI dashboard","Sentiment alerts at your own threshold","Full React + TypeScript source, CSV/JSON export"],
    url:"https://onyxailabs.gumroad.com/l/emosense-b2b", img:IMG("olojghf4ugeckro22k24taarbmai")},
-  {name:"AI Spend Tracker", cat:"ai", catLabel:"AI & Productivity", price:29,
+  {name:"AI Spend Tracker", short:"AI Spend Tracker", cat:"ai", catLabel:"AI & Productivity", price:29,
    desc:"Every AI subscription and API cost in one local dashboard — with a Savings Analyzer that shows exactly where your money leaks.",
+   feats:["Unified dashboard — every run, model & dollar","Savings Analyzer + Waste Detective","Budget Guard alerts at 50 / 80 / 100%","100% local — zero network requests"],
    url:"https://onyxailabs.gumroad.com/l/aispendtracker", img:IMG("tnw2c4nh8brlh2cbc4a7q0gafytf")},
-  {name:"AI Content Tools", cat:"ai", catLabel:"AI & Productivity", price:19,
+  {name:"AI Content Tools", short:"AI Content Tools", cat:"ai", catLabel:"AI & Productivity", price:19,
    desc:"12 everyday AI writing & marketing tools in one app, running on your own free Gemini key. No subscription, no server of ours.",
+   feats:["Hacker SEO Engine — strategy, tags & titles per platform","Interactive 3D analytics studio","JSON previewer + session scheduler","Runs locally or free on Streamlit Cloud"],
    url:"https://onyxailabs.gumroad.com/l/ai-content-tools", img:IMG("uqmxqm69wrkxprm1rlfl3iah80f4")},
-  {name:"WhatsAppKit", cat:"auto", catLabel:"Automation Kits", price:49,
+  {name:"WhatsAppKit", short:"WhatsAppKit", cat:"auto", catLabel:"Automation Kits", price:49,
    desc:"4 production-ready n8n WhatsApp workflows: order bot, AI lead qualifier, FAQ auto-reply and opt-in broadcast. Your server, your number.",
+   feats:["Order Bot — menu, orders & Sheets logging","AI Lead Qualifier — scores every inquiry 1–10","FAQ Auto-Reply from YOUR knowledge base (EN + Roman Urdu)","Opt-in Broadcast to consenting customers only"],
    url:"https://onyxailabs.gumroad.com/l/whatsappkit", img:IMG("ozgtghe8l7pp479w1q0w2sx735sa")},
-  {name:"AgentKit", cat:"auto", catLabel:"Automation Kits", price:59,
+  {name:"AgentKit", short:"AgentKit", cat:"auto", catLabel:"Automation Kits", price:59,
    desc:"5 local-first AI agents as import-ready n8n workflows — Telegram assistant, content repurposer, lead qualifier, researcher, support bot.",
+   feats:["5 complete agents — one CONFIG node each","Local Ollama (free) or your own OpenAI key","In-canvas setup guides — running in ~15 minutes","Commercial license for unlimited client projects"],
    url:"https://onyxailabs.gumroad.com/l/agentkit", img:IMG("grlf1ld8gj42bfofoxigv9grpsxn")},
-  {name:"ContractKit", cat:"auto", catLabel:"Automation Kits", price:29,
+  {name:"ContractKit", short:"ContractKit", cat:"auto", catLabel:"Automation Kits", price:29,
    desc:"Freelance contract templates & generator that works 100% offline: 5 templates, smart clauses, drawn signatures, client-ready PDFs.",
+   feats:["5 professional templates incl. NDA & retainer","Smart clauses — late fee, kill fee, IP-on-payment","Drawn signatures embedded in the PDF","White-label with your own brand"],
    url:"https://onyxailabs.gumroad.com/l/contractkit", img:IMG("xfsd3br6pcocgikl6dbjth770s0f")},
-  {name:"PrimeERP", cat:"biz", catLabel:"Business Software", price:59,
+  {name:"PrimeERP", short:"PrimeERP", cat:"biz", catLabel:"Business Software", price:59,
    desc:"Self-hosted mini ERP for small business: invoicing, inventory, HR and accounting in one dashboard. Full source code, Docker install.",
+   feats:["CRM, HR, inventory & finance in one dashboard","Real REST API (10 endpoints) with live docs","One-command Docker install, SQLite database","Demo data built in — explore every screen instantly"],
    url:"https://onyxailabs.gumroad.com/l/primeerp", img:IMG("nayw53a5iyb1kbei1kfwwi27mgzh")},
-  {name:"ProposaLite", cat:"biz", catLabel:"Business Software", price:79,
+  {name:"ProposaLite", short:"ProposaLite", cat:"biz", catLabel:"Business Software", price:79,
    desc:"Proposal builder with built-in e-signature. Draft, share one private link, and your client signs right on the page. Full source code.",
+   feats:["Editor with self-totalling pricing tables","Private client links — no login for your client","Built-in signature pad; signed proposals lock","PDF export with the signature included"],
    url:"https://onyxailabs.gumroad.com/l/proposalite", img:IMG("fh3qvsjk9t81wwv7ara2munfijoc")},
-  {name:"TenderOS", cat:"biz", catLabel:"Business Software", price:99,
+  {name:"TenderOS", short:"TenderOS", cat:"biz", catLabel:"Business Software", price:99,
    desc:"Tender & procurement management, end to end: bids, deadlines, documents, approvals and audit trail — on your own infrastructure.",
+   feats:["Full tender lifecycle — checklists, milestones, progress","Approvals workflow + tasks (list / kanban / calendar)","Documents with upload, preview & private storage","Role-based access enforced in the database (RLS)"],
    url:"https://onyxailabs.gumroad.com/l/tenderos", img:IMG("qvq9nam9s45iltxpg0ff7aqzgm4j")},
-  {name:"DPP — Digital Product Passport", cat:"biz", catLabel:"Business Software", price:79,
+  {name:"DPP — Digital Product Passport", short:"DPP", cat:"biz", catLabel:"Business Software", price:79,
    desc:"Product passports with QR verification and live analytics, built for the EU's incoming digital product rules. Self-hosted, full source.",
+   feats:["Scan → verify flow with PASS / FAIL verdicts","Live analytics computed from the database","Admin panel with on-the-spot QR generation","One-command Docker install"],
    url:"https://onyxailabs.gumroad.com/l/dpp", img:IMG("la3qafoc7kli94llsx16343of3nv")}
 ];
+const byShort = Object.fromEntries(PRODUCTS.map(p => [p.short, p]));
 
+/* ============ cover ribbon ============ */
+const ribbon = document.getElementById("ribbonTrack");
+ribbon.innerHTML = PRODUCTS.filter(p => p.img).map(p => `
+  <figure data-qv="${p.short}"><img src="${p.img}" alt="${p.name}" loading="lazy">
+  <figcaption><span>${p.short}</span><b>$${p.price}</b></figcaption></figure>`).join("");
+ribbon.innerHTML += ribbon.innerHTML;
+
+/* ============ grid: filter + search + sort ============ */
 const grid = document.getElementById("grid");
-function coverHTML(p){
-  if(p.img) return `<img src="${p.img}" alt="${p.name} cover" loading="lazy" onerror="this.parentNode.classList.add('noimg');this.remove()">`;
-  return "";
+let curFilter = "all", curQuery = "", curSort = "featured";
+function fallbackHTML(p){
+  return `<div class="fallback"><div class="fg">◆</div><b>${p.name}</b><span>${p.catLabel}</span></div>`;
 }
-function render(filter){
-  grid.innerHTML = PRODUCTS.filter(p => filter==="all" || p.cat===filter).map(p => `
-    <article class="card" data-tilt>
-      <div class="cover">${coverHTML(p)}
+function visibleProducts(){
+  let list = PRODUCTS.filter(p =>
+    (curFilter==="all" || p.cat===curFilter) &&
+    (p.name + " " + p.desc + " " + p.catLabel).toLowerCase().includes(curQuery));
+  if(curSort==="low")  list = [...list].sort((a,b) => a.price-b.price);
+  if(curSort==="high") list = [...list].sort((a,b) => b.price-a.price);
+  if(curSort==="az")   list = [...list].sort((a,b) => a.name.localeCompare(b.name));
+  return list;
+}
+function render(){
+  const list = visibleProducts();
+  grid.innerHTML = list.length ? list.map(p => `
+    <article class="card" data-tilt data-qv="${p.short}">
+      <div class="stage">
+        <div class="layer">${p.img ? `<img src="${p.img}" alt="${p.name} cover" loading="lazy" onerror="this.outerHTML=fallbackHTML(byShort['${p.short}'])">` : fallbackHTML(p)}</div>
+        <div class="glare"></div>
+        ${p.hot ? `<span class="hot-badge">★ ${p.hot}</span>` : ""}
         <span class="price-badge">$${p.price}</span>
       </div>
       <div class="body">
-        <div class="cat">${p.catLabel}${p.hot ? " · ★ " + p.hot : ""}</div>
+        <div class="cat">${p.catLabel}</div>
         <h3>${p.name}</h3>
         <p>${p.desc}</p>
         <div class="foot">
           <span class="own"><b>One-time</b> · own forever</span>
-          <a class="btn btn-gold mini-btn" href="${p.url}" target="_blank" rel="noopener">View product</a>
+          <span style="display:flex;gap:8px">
+            <button class="qv-btn" data-qv="${p.short}">3D View</button>
+            <a class="btn btn-gold mini-btn" href="${p.url}" target="_blank" rel="noopener">View</a>
+          </span>
         </div>
       </div>
-    </article>`).join("");
+    </article>`).join("")
+  : `<div class="noresults">No product matches “${curQuery}”. Try another word — or browse the full store.</div>`;
   bindTilt();
-  if(window.gsap){
-    gsap.fromTo("#grid .card",{opacity:0,y:26},{opacity:1,y:0,duration:.55,stagger:.06,ease:"power3.out",overwrite:true});
-  }
+  if(window.gsap) gsap.fromTo("#grid .card",{opacity:0,y:24},{opacity:1,y:0,duration:.5,stagger:.05,ease:"power3.out",overwrite:true,clearProps:"opacity"});
 }
 document.getElementById("filters").addEventListener("click", e => {
   const b = e.target.closest(".fbtn"); if(!b) return;
   document.querySelectorAll(".fbtn").forEach(x => x.classList.remove("active"));
-  b.classList.add("active");
-  render(b.dataset.filter);
+  b.classList.add("active"); curFilter = b.dataset.filter; render();
 });
+document.getElementById("search").addEventListener("input", e => { curQuery = e.target.value.trim().toLowerCase(); render(); });
+document.getElementById("sort").addEventListener("change", e => { curSort = e.target.value; render(); });
 
-/* 3D tilt on cards (desktop pointers only) */
+/* ============ buttery 3D tilt (lerped, with moving glare) ============ */
 function bindTilt(){
   if(!window.matchMedia("(pointer:fine)").matches) return;
   document.querySelectorAll("[data-tilt]").forEach(card => {
+    if(card._tilt) return; card._tilt = true;
+    let rx=0, ry=0, trx=0, try_=0, raf=null;
+    const stage = card.querySelector(".stage .glare");
+    function loop(){
+      rx += (trx-rx)*.12; ry += (try_-ry)*.12;
+      card.style.transform = `perspective(950px) rotateY(${ry}deg) rotateX(${rx}deg) translateY(-3px)`;
+      if(Math.abs(trx-rx)>.02 || Math.abs(try_-ry)>.02) raf = requestAnimationFrame(loop);
+      else raf = null;
+    }
     card.addEventListener("mousemove", e => {
       const r = card.getBoundingClientRect();
-      const x = (e.clientX - r.left)/r.width - .5, y = (e.clientY - r.top)/r.height - .5;
-      card.style.transform = `perspective(900px) rotateY(${x*7}deg) rotateX(${-y*7}deg) translateY(-3px)`;
+      const px = (e.clientX-r.left)/r.width, py = (e.clientY-r.top)/r.height;
+      try_ = (px-.5)*10; trx = (.5-py)*10;
+      if(stage) stage.style.setProperty("--gx", (px*100)+"%"), stage.style.setProperty("--gy", (py*100)+"%");
+      if(!raf) raf = requestAnimationFrame(loop);
     });
-    card.addEventListener("mouseleave", () => { card.style.transform = ""; });
+    card.addEventListener("mouseleave", () => { trx=0; try_=0; if(!raf) raf = requestAnimationFrame(loop); });
   });
 }
-render("all");
 
-/* header + mobile nav */
+/* ============ quick-view modal ============ */
+const modal = document.getElementById("modal");
+function openModal(p){
+  document.getElementById("mCat").textContent = p.catLabel + " · One-time payment";
+  document.getElementById("mName").textContent = p.name;
+  document.getElementById("mDesc").textContent = p.desc;
+  document.getElementById("mFeats").innerHTML = p.feats.map(f => `<li>${f}</li>`).join("");
+  document.getElementById("mPrice").textContent = "$" + p.price;
+  document.getElementById("mBtn").href = p.url;
+  const mc = document.getElementById("modalCard");
+  mc.innerHTML = p.img ? `<img src="${p.img}" alt="${p.name} cover">` : fallbackHTML(p);
+  modal.classList.add("open"); document.body.style.overflow = "hidden";
+  if(window.gsap) gsap.fromTo(".modal .box",{opacity:0,y:34,scale:.97},{opacity:1,y:0,scale:1,duration:.45,ease:"power3.out"});
+}
+function closeModal(){ modal.classList.remove("open"); document.body.style.overflow = ""; }
+document.getElementById("modalX").addEventListener("click", closeModal);
+document.getElementById("modalBg").addEventListener("click", closeModal);
+addEventListener("keydown", e => { if(e.key==="Escape") closeModal(); });
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-qv]");
+  if(t && byShort[t.dataset.qv]) openModal(byShort[t.dataset.qv]);
+});
+/* modal card follows the mouse in 3D */
+const mStage = document.querySelector(".modal .mstage");
+mStage.addEventListener("mousemove", e => {
+  const r = mStage.getBoundingClientRect();
+  const px = (e.clientX-r.left)/r.width - .5, py = (e.clientY-r.top)/r.height - .5;
+  document.getElementById("modalCard").style.transform =
+    `rotateY(${px*18}deg) rotateX(${-py*14}deg)`;
+});
+mStage.addEventListener("mouseleave", () =>
+  document.getElementById("modalCard").style.transform = "");
+
+/* ============ spotlight rotator ============ */
+const SPOTS = ["OnyxIQ","WhatsAppKit","PrimeERP","Viral Content Machine"];
+let spotIdx = 0, spotTimer = null;
+const dotsBox = document.getElementById("spotDots");
+dotsBox.innerHTML = SPOTS.map((_,i) => `<button data-i="${i}" aria-label="Spotlight ${i+1}"></button>`).join("");
+function showSpot(i){
+  spotIdx = i; const p = byShort[SPOTS[i]];
+  document.getElementById("spotCat").textContent = p.catLabel + " · Spotlight";
+  document.getElementById("spotName").textContent = p.name;
+  document.getElementById("spotDesc").textContent = p.desc;
+  document.getElementById("spotFeats").innerHTML = p.feats.map(f => `<li>${f}</li>`).join("");
+  document.getElementById("spotPrice").textContent = "$" + p.price;
+  document.getElementById("spotBtn").href = p.url;
+  const card = document.getElementById("spotCard");
+  card.innerHTML = p.img ? `<img src="${p.img}" alt="${p.name} cover">` : fallbackHTML(p);
+  dotsBox.querySelectorAll("button").forEach((d,j) => d.classList.toggle("active", j===i));
+  if(window.gsap) gsap.fromTo(card,{rotationY:-14,opacity:.4},{rotationY:0,opacity:1,duration:.8,ease:"power3.out"});
+  clearInterval(spotTimer); spotTimer = setInterval(() => showSpot((spotIdx+1)%SPOTS.length), 5200);
+}
+dotsBox.addEventListener("click", e => { const b = e.target.closest("button"); if(b) showSpot(+b.dataset.i); });
+const spotStage = document.querySelector(".spot-stage");
+spotStage.addEventListener("mousemove", e => {
+  const r = spotStage.getBoundingClientRect();
+  const px = (e.clientX-r.left)/r.width - .5, py = (e.clientY-r.top)/r.height - .5;
+  document.getElementById("spotCard").style.transform = `rotateY(${px*16}deg) rotateX(${-py*12}deg)`;
+});
+spotStage.addEventListener("mouseleave", () =>
+  document.getElementById("spotCard").style.transform = "");
+showSpot(0);
+render();
+
+/* ============ header / nav / marquee ============ */
 const header = document.getElementById("header");
 addEventListener("scroll", () => header.classList.toggle("scrolled", scrollY > 30), {passive:true});
 document.getElementById("burger").addEventListener("click", () =>
   document.getElementById("navLinks").classList.toggle("open"));
 document.querySelectorAll(".nav-links a").forEach(a =>
   a.addEventListener("click", () => document.getElementById("navLinks").classList.remove("open")));
+const mq = document.getElementById("mqTrack"); mq.innerHTML += mq.innerHTML;
 
-/* marquee: duplicate track for a seamless loop */
-const mq = document.getElementById("mqTrack");
-mq.innerHTML += mq.innerHTML;
-
-/* scroll reveals */
+/* ============ scroll reveals ============ */
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 if(reduced || !window.gsap){
   document.documentElement.classList.add("no-motion");
@@ -600,7 +876,7 @@ if(reduced || !window.gsap){
 {"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}
 </script>
 <script type="module">
-/* ================= cinematic 3D hero: the Onyx crystal ================= */
+/* ================= HERO: the Onyx crystal ================= */
 try{
   const THREE = await import("three");
   const canvas = document.getElementById("gl");
@@ -610,10 +886,8 @@ try{
   scene.fog = new THREE.FogExp2(0x05060f, 0.055);
   const camera = new THREE.PerspectiveCamera(42, innerWidth/innerHeight, .1, 100);
   camera.position.set(0, 0, 9);
-
   const world = new THREE.Group(); scene.add(world);
 
-  /* the crystal — a faceted onyx gem */
   const crystal = new THREE.Group();
   const gemGeo = new THREE.OctahedronGeometry(1.55, 0);
   const gem = new THREE.Mesh(gemGeo, new THREE.MeshPhysicalMaterial({
@@ -622,27 +896,23 @@ try{
     emissive:0x1a1033, emissiveIntensity:.5, flatShading:true
   }));
   gem.scale.y = 1.45; crystal.add(gem);
-  const edges = new THREE.LineSegments(
-    new THREE.EdgesGeometry(gemGeo),
+  const edges = new THREE.LineSegments(new THREE.EdgesGeometry(gemGeo),
     new THREE.LineBasicMaterial({color:0xf5c542, transparent:true, opacity:.85}));
   edges.scale.copy(gem.scale); crystal.add(edges);
   const core = new THREE.Mesh(new THREE.OctahedronGeometry(.5, 0),
     new THREE.MeshBasicMaterial({color:0xffd970}));
   core.scale.y = 1.45; crystal.add(core);
-  crystal.position.set(2.9, .2, 0); world.add(crystal);
+  world.add(crystal);
 
-  /* orbit rings */
   const rings = new THREE.Group();
   [[2.5,.5],[3.1,-.35],[3.7,.9]].forEach(([r,tilt],i) => {
     const ring = new THREE.Mesh(new THREE.TorusGeometry(r,.012,8,140),
-      new THREE.MeshBasicMaterial({color: i===1 ? 0x7c5cff : 0xf5c542,
-        transparent:true, opacity:.5}));
+      new THREE.MeshBasicMaterial({color: i===1 ? 0x7c5cff : 0xf5c542, transparent:true, opacity:.5}));
     ring.rotation.x = Math.PI/2 + tilt; ring.rotation.y = tilt*.7;
     rings.add(ring);
   });
-  rings.position.copy(crystal.position); world.add(rings);
+  world.add(rings);
 
-  /* particle cloud — dust / stars drifting like the reference's clouds */
   const N = 1100, pos = new Float32Array(N*3);
   for(let i=0;i<N;i++){
     const r = 6 + Math.random()*13, th = Math.random()*Math.PI*2, ph = Math.acos(2*Math.random()-1);
@@ -657,7 +927,7 @@ try{
     blending:THREE.AdditiveBlending, depthWrite:false}));
   world.add(points);
 
-  scene.add(new THREE.AmbientLight(0x334, .8));
+  scene.add(new THREE.AmbientLight(0x223, .9));
   const key = new THREE.PointLight(0xf5c542, 220, 40); key.position.set(-4,3,4); scene.add(key);
   const rim = new THREE.PointLight(0x7c5cff, 160, 40); rim.position.set(5,-2,3); scene.add(rim);
   const fill = new THREE.DirectionalLight(0xffffff, 1.1); fill.position.set(2,4,6); scene.add(fill);
@@ -670,12 +940,14 @@ try{
     const h = document.documentElement;
     scrollP = h.scrollTop / Math.max(1, h.scrollHeight - innerHeight);
   }, {passive:true});
-
+  function place(){
+    crystal.position.set(innerWidth < 900 ? 0 : 2.9, innerWidth < 900 ? 1.7 : .2, 0);
+    rings.position.copy(crystal.position);
+  }
   function resize(){
     renderer.setSize(innerWidth, innerHeight);
     camera.aspect = innerWidth/innerHeight; camera.updateProjectionMatrix();
-    crystal.position.x = innerWidth < 900 ? 0 : 2.9;
-    crystal.position.y = innerWidth < 900 ? 1.6 : .2;
+    place();
   }
   addEventListener("resize", resize); resize();
 
@@ -688,12 +960,10 @@ try{
     if(!reduceMotion){
       crystal.rotation.y = t*.28;
       crystal.rotation.z = Math.sin(t*.4)*.06;
-      crystal.position.y += Math.sin(t*.9)*.0009;
       core.rotation.y = -t*.6;
       rings.rotation.y = t*.12; rings.rotation.z = t*.05;
       points.rotation.y = t*.016;
     }
-    /* cinematic scroll camera: dolly + pan as the visitor descends */
     camera.position.x = mx*.7 + Math.sin(scrollP*Math.PI*1.2)*1.1;
     camera.position.y = -my*.5 - scrollP*2.2;
     camera.position.z = 9 - scrollP*2.6;
@@ -702,8 +972,145 @@ try{
     renderer.render(scene, camera);
   })();
 }catch(err){
-  /* WebGL unavailable — the CSS glows/grid still carry the design */
   document.getElementById("gl").style.display = "none";
+}
+</script>
+
+<script type="module">
+/* ================= PRODUCT UNIVERSE: every product in 3D ================= */
+try{
+  const THREE = await import("three");
+  const canvas = document.getElementById("gl2");
+  const renderer = new THREE.WebGLRenderer({canvas, alpha:true, antialias:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x07081a, 0.028);
+  const camera = new THREE.PerspectiveCamera(46, 2, .1, 100);
+  let camZ = 11.5; camera.position.set(0, 0, camZ);
+
+  const orbit = new THREE.Group(); scene.add(orbit);
+  const loader = new THREE.TextureLoader();
+  loader.setCrossOrigin("anonymous");
+
+  function madeTexture(p){
+    const c = document.createElement("canvas"); c.width = 512; c.height = 288;
+    const g = c.getContext("2d");
+    const grad = g.createLinearGradient(0,0,512,288);
+    grad.addColorStop(0,"#1b1440"); grad.addColorStop(.6,"#0d0c1e"); grad.addColorStop(1,"#241a06");
+    g.fillStyle = grad; g.fillRect(0,0,512,288);
+    g.strokeStyle = "rgba(245,197,66,.65)"; g.lineWidth = 3; g.strokeRect(10,10,492,268);
+    g.fillStyle = "#f5c542"; g.font = "44px Georgia"; g.textAlign = "center";
+    g.fillText("◆", 256, 92);
+    g.fillStyle = "#eef0ff"; g.font = "bold 30px Arial";
+    const words = p.short.split(" "); let line = "", lines = [];
+    for(const w of words){ if((line+" "+w).trim().length > 24){ lines.push(line.trim()); line = w; } else line += " " + w; }
+    lines.push(line.trim());
+    lines.forEach((l,i) => g.fillText(l, 256, 148 + i*36));
+    g.fillStyle = "#2ee6a8"; g.font = "bold 26px Arial";
+    g.fillText("$" + p.price + " · ONE-TIME", 256, 148 + lines.length*36 + 16);
+    const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
+    return tex;
+  }
+
+  const planes = [];
+  const ringDefs = [
+    {n: PRODUCTS.length, r: 6.4, y: .35, tilt: .16}
+  ];
+  PRODUCTS.forEach((p, i) => {
+    const def = ringDefs[0];
+    const ang = (i / def.n) * Math.PI * 2;
+    const holder = new THREE.Group();
+    holder.position.set(Math.cos(ang)*def.r, def.y + Math.sin(i*2.3)*.5, Math.sin(ang)*def.r);
+    holder.lookAt(0, def.y, 0); holder.rotateY(Math.PI);
+    const frame = new THREE.Mesh(new THREE.PlaneGeometry(2.78, 1.62),
+      new THREE.MeshBasicMaterial({color:0xf5c542, transparent:true, opacity:.30, side:THREE.DoubleSide}));
+    frame.position.z = -.015; holder.add(frame);
+    const mat = new THREE.MeshBasicMaterial({side:THREE.DoubleSide});
+    const plane = new THREE.Mesh(new THREE.PlaneGeometry(2.66, 1.5), mat);
+    plane.userData.product = p; holder.add(plane);
+    orbit.add(holder); planes.push(plane);
+    if(p.img){
+      loader.load(p.img,
+        tex => { tex.colorSpace = THREE.SRGBColorSpace; mat.map = tex; mat.needsUpdate = true; },
+        undefined,
+        () => { mat.map = madeTexture(p); mat.needsUpdate = true; });
+    }else{
+      mat.map = madeTexture(p); mat.needsUpdate = true;
+    }
+  });
+
+  /* center gem */
+  const centerGem = new THREE.Mesh(new THREE.OctahedronGeometry(.85, 0),
+    new THREE.MeshPhysicalMaterial({color:0x1a1440, metalness:.3, roughness:.15,
+      emissive:0x2a1a66, emissiveIntensity:.7, flatShading:true}));
+  centerGem.scale.y = 1.4; scene.add(centerGem);
+  scene.add(new THREE.AmbientLight(0x8888ff, .7));
+  const pl = new THREE.PointLight(0xf5c542, 120, 30); pl.position.set(0,2,4); scene.add(pl);
+
+  /* interaction: drag to orbit, wheel to zoom, click to open */
+  let dragging = false, px = 0, py = 0, velY = .0016, velX = 0, moved = 0;
+  let targetRX = .12, targetRY = 0;
+  canvas.addEventListener("pointerdown", e => {
+    dragging = true; moved = 0; px = e.clientX; py = e.clientY;
+    canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener("pointermove", e => {
+    if(!dragging) return;
+    const dx = e.clientX - px, dy = e.clientY - py;
+    moved += Math.abs(dx) + Math.abs(dy);
+    targetRY += dx * .005; targetRX += dy * .002;
+    targetRX = Math.max(-.5, Math.min(.6, targetRX));
+    velY = dx * .0004; px = e.clientX; py = e.clientY;
+  });
+  canvas.addEventListener("pointerup", e => {
+    dragging = false;
+    if(moved < 6){
+      const r = canvas.getBoundingClientRect();
+      const mouse = new THREE.Vector2(
+        ((e.clientX - r.left)/r.width)*2 - 1,
+        -((e.clientY - r.top)/r.height)*2 + 1);
+      const ray = new THREE.Raycaster();
+      ray.setFromCamera(mouse, camera);
+      const hit = ray.intersectObjects(planes)[0];
+      if(hit){
+        const p = hit.object.userData.product;
+        document.getElementById("uniSel").innerHTML =
+          `Selected: <b>${p.name}</b> — $${p.price} one-time`;
+        openModal(p);
+      }
+    }
+  });
+  canvas.addEventListener("wheel", e => {
+    e.preventDefault();
+    camZ = Math.max(7.5, Math.min(16, camZ + e.deltaY * .01));
+  }, {passive:false});
+
+  let visible = true;
+  new IntersectionObserver(en => { visible = en[0].isIntersecting; }, {threshold:.02}).observe(canvas);
+  function resize2(){
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    renderer.setSize(w, h, false);
+    camera.aspect = w/h; camera.updateProjectionMatrix();
+  }
+  addEventListener("resize", resize2); resize2();
+
+  const clock2 = new THREE.Clock();
+  (function tick2(){
+    requestAnimationFrame(tick2);
+    if(!visible) return;
+    const t = clock2.getElapsedTime();
+    if(!dragging){ targetRY += velY + .0016; velY *= .96; }
+    orbit.rotation.y += (targetRY - orbit.rotation.y) * .07;
+    orbit.rotation.x += (targetRX - orbit.rotation.x) * .07;
+    orbit.position.y = Math.sin(t * .5) * .18;
+    centerGem.rotation.y = t * .4;
+    camera.position.z += (camZ - camera.position.z) * .06;
+    camera.lookAt(0, 0, 0);
+    renderer.render(scene, camera);
+  })();
+}catch(err){
+  document.getElementById("uniSel").innerHTML =
+    "The 3D universe needs WebGL — the full product grid below has everything.";
 }
 </script>
 </body>
