@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp Automation with n8n: A Practical Guide</title>
+<meta name="description" content="WhatsApp automation with n8n explained: auto-replies, order-status lookups, reminders and human takeover — plus the honest costs and Meta approval limits.">
+<link rel="canonical" href="https://onyxailabs.me/guides/whatsapp-automation-with-n8n/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://onyxailabs.me/guides/whatsapp-automation-with-n8n/">
+<meta property="og:title" content="WhatsApp Automation with n8n: A Practical Guide">
+<meta property="og:description" content="WhatsApp automation with n8n explained: auto-replies, order-status lookups, reminders and human takeover — plus the honest costs and Meta approval limits.">
+<meta property="og:image" content="https://onyxailabs.me/og-image.png">
+<meta property="og:site_name" content="Onyx AI Labs">
+<meta name="theme-color" content="#05060f">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,4 92,50 50,96 8,50' fill='%23f5c542'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"WhatsApp Automation with n8n: A Practical Guide","description":"WhatsApp automation with n8n explained: auto-replies, order-status lookups, reminders and human takeover — plus the honest costs and Meta approval limits.","mainEntityOfPage":"https://onyxailabs.me/guides/whatsapp-automation-with-n8n/","author":{"@type":"Person","name":"Muhammad Mohsin"},"publisher":{"@type":"Organization","name":"Onyx AI Labs","url":"https://onyxailabs.me/"}}
+</script>
+<style>
+:root{
+  --bg:#05060f; --bg2:#0a0c1d; --panel:#0e1126; --panel2:#12152e;
+  --line:rgba(255,255,255,.09); --txt:#eef0ff; --muted:#a7abd0;
+  --gold:#f5c542; --gold2:#ffdf8e; --violet:#7c5cff; --green:#2ee6a8;
+  --radius:18px; --max:1100px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',system-ui,Arial,sans-serif;line-height:1.7}
+h1,h2,h3{font-family:'Space Grotesk','Inter',sans-serif;line-height:1.2}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+::selection{background:var(--gold);color:#111}
+header{border-bottom:1px solid var(--line);background:rgba(5,6,15,.9)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:var(--max);margin:0 auto;padding:16px 22px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--txt);font-family:'Space Grotesk';font-weight:700;letter-spacing:.14em;font-size:17px}
+.logo:hover{text-decoration:none}
+.logo .gem{width:28px;height:28px;flex:none}
+.logo small{display:block;font-size:9px;letter-spacing:.34em;color:var(--gold);font-weight:600}
+.nav-links{display:flex;gap:24px;flex-wrap:wrap}
+.nav-links a{color:var(--muted);font-size:14.5px;font-weight:500;text-decoration:none}
+.nav-links a:hover{color:#fff;text-decoration:none}
+.article{max-width:760px;margin:0 auto;padding:54px 22px 72px}
+.kicker{color:var(--gold);font-weight:700;letter-spacing:.26em;font-size:12px;text-transform:uppercase;margin-bottom:14px}
+.article h1{font-size:clamp(32px,5vw,46px);margin-bottom:20px}
+.article h2{font-size:clamp(23px,3.4vw,29px);margin:40px 0 12px}
+.article h3{font-size:19px;margin:26px 0 8px}
+.article p{color:var(--muted);font-size:16.5px;margin-bottom:16px}
+.article p.lede{font-size:18.5px;color:#dfe2ff}
+.article ul{color:var(--muted);font-size:16.5px;margin:0 0 16px 22px}
+.article li{margin-bottom:8px}
+.article strong{color:var(--txt)}
+.example-box{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid rgba(245,197,66,.35);border-radius:var(--radius);padding:26px;margin:26px 0}
+.example-box h3{margin-top:0;color:var(--gold2)}
+.example-box p:last-child{margin-bottom:0}
+.cta-box{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--radius);padding:26px;margin-top:38px}
+.cta-box p{margin-bottom:10px}
+.cta-box p:last-child{margin-bottom:0}
+footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 22px 30px}
+.foot{max-width:var(--max);margin:0 auto;display:flex;flex-wrap:wrap;gap:14px 44px;justify-content:space-between}
+.foot .brand{font-family:'Space Grotesk';font-weight:700;letter-spacing:.14em}
+.foot p,.foot a{color:var(--muted);font-size:14.5px}
+.foot a:hover{color:var(--gold)}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.copyright{max-width:var(--max);margin:26px auto 0;padding-top:18px;border-top:1px solid var(--line);color:#6d7199;font-size:13px}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="logo" href="/" aria-label="Onyx AI Labs home">
+      <svg class="gem" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,4 92,50 50,96 8,50" fill="none" stroke="#f5c542" stroke-width="7"/><polygon points="50,26 72,50 50,74 28,50" fill="#f5c542"/></svg>
+      <span>ONYX<small>AI LABS</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="article">
+  <div class="kicker">Guide</div>
+  <h1>WhatsApp Automation with n8n: A Practical Guide</h1>
+
+  <p class="lede">WhatsApp automation with n8n means connecting a WhatsApp Business number to n8n — an open-source workflow tool you can run yourself — so that routine customer messages are handled by workflows you design and control: answering common questions, looking up order status, sending reminders, and passing anything sensitive to a human. This guide explains the building blocks, shows a worked example, and states the real costs and limits up front.</p>
+
+  <h2>How it fits together</h2>
+  <p>Three pieces do the work. First, the <strong>WhatsApp Business Platform</strong> (Meta's official API) delivers each incoming message to your system as a webhook and accepts your replies. Second, <strong>n8n</strong> receives that webhook and runs a workflow: a chain of steps that reads the message, decides what it is, fetches whatever information is needed, and sends the reply. Third, your <strong>own data</strong> — a spreadsheet, a database, your order system — supplies the answers. Because n8n can be self-hosted and the data stays in your own accounts, the automation runs on infrastructure you control rather than inside a rented chatbot platform.</p>
+
+  <h2>The common building blocks</h2>
+  <h3>Auto-reply and FAQ</h3>
+  <p>The starting point for most businesses. Incoming messages are matched — by keywords, or routed by a small AI step — against the questions customers ask every day: opening hours, prices, delivery areas, how to order. The workflow answers instantly and consistently, at any hour, in the same tone you approved when you wrote the answers.</p>
+  <h3>Order-status lookup</h3>
+  <p>The customer sends their order number; the workflow looks it up in your sheet or database and replies with its current status. This single workflow often removes the most repetitive question a small shop receives — "where is my order?" — without anyone opening a spreadsheet at midnight.</p>
+  <h3>Reminders</h3>
+  <p>Scheduled workflows that message customers who opted in: an appointment tomorrow, a payment due date, a delivery arriving today. Reminders are proactive messages, which means Meta's rules for starting conversations apply to them — more on that in the limits below.</p>
+  <h3>Human takeover</h3>
+  <p>The block that makes the rest safe. When a message does not match anything the workflow understands, when a customer asks for a person, or when the topic is sensitive — a complaint, a refund — the workflow stops, notifies the owner, and lets a human continue the conversation. Good automation is defined by what it hands over, not just by what it answers.</p>
+  <p>A router step usually sits in front of all four, reading each message once and sending it down the right path, so the system behaves like one organised assistant instead of four disconnected bots.</p>
+
+  <div class="example-box">
+    <h3>Worked example — a small clothing shop (example)</h3>
+    <p><em>The following is an illustrative example of how a small business might use these blocks; it is not a case study of a real customer.</em></p>
+    <p>A small clothing shop takes orders through WhatsApp and keeps its orders in a spreadsheet. A customer messages, "Where is my order? Number 101." The router recognises an order-status request, the lookup step finds order 101 in the sheet — marked "dispatched" — and the workflow replies with the status and the delivery estimate the shop recorded.</p>
+    <p>Later, another customer asks whether a sold-out size will come back. The workflow has no answer for stock questions, so instead of guessing, it notifies the shop owner and tells the customer a person will reply shortly. The owner answers personally — which is exactly the kind of message a human should answer.</p>
+  </div>
+
+  <h2>Honest limits — read this before you build</h2>
+  <ul>
+    <li><strong>You need your own WhatsApp Business number and Meta approval.</strong> Automation runs on Meta's official platform. Registering the number and getting the account approved is a step every business does for itself; no kit can do it for you or skip it.</li>
+    <li><strong>Meta charges per-conversation fees.</strong> Beyond a free monthly allowance, Meta bills per conversation, and rates vary by country and conversation type. The workflow software may be yours, but the channel itself is Meta's, and its pricing is part of the real cost.</li>
+    <li><strong>Proactive messages follow template rules.</strong> Replies inside an open conversation window are flexible; messages you start — like reminders — must use pre-approved templates. Plan for that approval step.</li>
+    <li><strong>Start with one workflow, not everything at once.</strong> The businesses that succeed with this begin with their single most repetitive conversation, run it for a while, and only then add the next block. Building all four on day one usually means debugging all four on day two.</li>
+    <li><strong>Automation handles routine, not relationships.</strong> Angry customers, negotiations and unusual requests belong with a person. If a tool promises to replace that judgement entirely, be sceptical.</li>
+  </ul>
+
+  <h2>Where WhatsAppKit fits</h2>
+  <p><strong>WhatsAppKit</strong> is Onyx AI Labs' ready-made set of n8n workflows covering exactly the blocks above — auto-reply and FAQ, order-status lookup, reminders and human takeover — so instead of building each workflow from a blank canvas, you install tested workflows and adapt them to your business, with a step-by-step guide written from steps that were actually run. It costs <strong>$49, one time</strong>. It does not remove the limits above: you still register your own number, still get Meta's approval, and still pay Meta's conversation fees. What it removes is the blank-canvas work.</p>
+
+  <div class="cta-box">
+    <p><strong>WhatsAppKit — $49, one time</strong></p>
+    <p><a href="https://onyxailabs.gumroad.com/l/whatsappkit" target="_blank" rel="noopener">Get WhatsAppKit on Gumroad</a></p>
+    <p>More reading: <a href="/guides/track-ai-subscription-costs/">how to track AI subscription costs</a>, or browse <a href="/guides/">all guides</a>.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <div class="brand">ONYX AI LABS</div>
+      <p>One-time-payment AI tools. Buy once, own forever.</p>
+    </div>
+    <div class="foot-links">
+      <a href="mailto:contactonyxailabs@gmail.com">contactonyxailabs@gmail.com</a>
+      <a href="https://onyxailabs.gumroad.com" target="_blank" rel="noopener">Gumroad store</a>
+      <a href="https://www.youtube.com/@onyxaipk" target="_blank" rel="noopener">Onyx AI on YouTube</a>
+    </div>
+  </div>
+  <div class="copyright">© 2026 Onyx AI Labs — Muzaffargarh, Punjab, Pakistan.</div>
+</footer>
+
+</body>
+</html>
