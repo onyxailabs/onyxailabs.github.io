@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Track AI Subscription Costs and Audit Your Stack</title>
+<meta name="description" content="AI subscriptions adding up? Learn how to audit your AI tools step by step, spot overlap and unused plans, and track AI subscription costs in one place.">
+<link rel="canonical" href="https://onyxailabs.me/guides/track-ai-subscription-costs/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://onyxailabs.me/guides/track-ai-subscription-costs/">
+<meta property="og:title" content="How to Track AI Subscription Costs and Audit Your Stack">
+<meta property="og:description" content="AI subscriptions adding up? Learn how to audit your AI tools step by step, spot overlap and unused plans, and track AI subscription costs in one place.">
+<meta property="og:image" content="https://onyxailabs.me/og-image.png">
+<meta property="og:site_name" content="Onyx AI Labs">
+<meta name="theme-color" content="#05060f">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,4 92,50 50,96 8,50' fill='%23f5c542'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How to Track AI Subscription Costs and Audit Your Stack","description":"AI subscriptions adding up? Learn how to audit your AI tools step by step, spot overlap and unused plans, and track AI subscription costs in one place.","mainEntityOfPage":"https://onyxailabs.me/guides/track-ai-subscription-costs/","author":{"@type":"Person","name":"Muhammad Mohsin"},"publisher":{"@type":"Organization","name":"Onyx AI Labs","url":"https://onyxailabs.me/"}}
+</script>
+<style>
+:root{
+  --bg:#05060f; --bg2:#0a0c1d; --panel:#0e1126; --panel2:#12152e;
+  --line:rgba(255,255,255,.09); --txt:#eef0ff; --muted:#a7abd0;
+  --gold:#f5c542; --gold2:#ffdf8e; --violet:#7c5cff; --green:#2ee6a8;
+  --radius:18px; --max:1100px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',system-ui,Arial,sans-serif;line-height:1.7}
+h1,h2,h3{font-family:'Space Grotesk','Inter',sans-serif;line-height:1.2}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+::selection{background:var(--gold);color:#111}
+header{border-bottom:1px solid var(--line);background:rgba(5,6,15,.9)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:var(--max);margin:0 auto;padding:16px 22px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--txt);font-family:'Space Grotesk';font-weight:700;letter-spacing:.14em;font-size:17px}
+.logo:hover{text-decoration:none}
+.logo .gem{width:28px;height:28px;flex:none}
+.logo small{display:block;font-size:9px;letter-spacing:.34em;color:var(--gold);font-weight:600}
+.nav-links{display:flex;gap:24px;flex-wrap:wrap}
+.nav-links a{color:var(--muted);font-size:14.5px;font-weight:500;text-decoration:none}
+.nav-links a:hover{color:#fff;text-decoration:none}
+.article{max-width:760px;margin:0 auto;padding:54px 22px 72px}
+.kicker{color:var(--gold);font-weight:700;letter-spacing:.26em;font-size:12px;text-transform:uppercase;margin-bottom:14px}
+.article h1{font-size:clamp(32px,5vw,46px);margin-bottom:20px}
+.article h2{font-size:clamp(23px,3.4vw,29px);margin:40px 0 12px}
+.article p{color:var(--muted);font-size:16.5px;margin-bottom:16px}
+.article p.lede{font-size:18.5px;color:#dfe2ff}
+.article ol,.article ul{color:var(--muted);font-size:16.5px;margin:0 0 16px 22px}
+.article li{margin-bottom:8px}
+.article strong{color:var(--txt)}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:22px 0}
+table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line)}
+thead th{font-family:'Space Grotesk';background:rgba(255,255,255,.03);color:var(--txt)}
+td{color:var(--muted)}
+td:first-child{color:var(--txt);font-weight:600}
+tr.total td{color:var(--txt);font-weight:700;background:rgba(245,197,66,.05)}
+tbody tr:last-child td{border-bottom:0}
+.cta-box{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--radius);padding:26px;margin-top:38px}
+.cta-box p{margin-bottom:10px}
+.cta-box p:last-child{margin-bottom:0}
+footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 22px 30px}
+.foot{max-width:var(--max);margin:0 auto;display:flex;flex-wrap:wrap;gap:14px 44px;justify-content:space-between}
+.foot .brand{font-family:'Space Grotesk';font-weight:700;letter-spacing:.14em}
+.foot p,.foot a{color:var(--muted);font-size:14.5px}
+.foot a:hover{color:var(--gold)}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.copyright{max-width:var(--max);margin:26px auto 0;padding-top:18px;border-top:1px solid var(--line);color:#6d7199;font-size:13px}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="logo" href="/" aria-label="Onyx AI Labs home">
+      <svg class="gem" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,4 92,50 50,96 8,50" fill="none" stroke="#f5c542" stroke-width="7"/><polygon points="50,26 72,50 50,74 28,50" fill="#f5c542"/></svg>
+      <span>ONYX<small>AI LABS</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="article">
+  <div class="kicker">Guide</div>
+  <h1>How to Track AI Subscription Costs and Audit Your Stack</h1>
+
+  <p class="lede">Tracking AI subscription costs means keeping one honest list of every AI tool you pay for — what it costs, when it renews, and whether you actually used it — and reviewing that list on a schedule. This guide explains why AI spending quietly creeps upward and gives a step-by-step audit you can do with a notebook, a spreadsheet, or a dedicated tracker.</p>
+
+  <h2>Why AI subscription costs creep up</h2>
+  <p>Almost nobody sets out to overspend on AI tools. The total grows one reasonable decision at a time, and a few patterns cause most of it:</p>
+  <ul>
+    <li><strong>Many small subscriptions.</strong> Each plan is priced to feel minor on its own. Added together — a chatbot here, an image tool there, a transcription plan on top — the monthly total is no longer minor, but no single bill ever triggers a review.</li>
+    <li><strong>The wrong model for the job.</strong> Paying for a flagship plan to do routine work — short drafts, summaries, simple questions — is like hiring a specialist for data entry. Many tasks are served just as well by a cheaper tier or a free tool, but the default plan keeps renewing.</li>
+    <li><strong>Unused seats and forgotten plans.</strong> A tool adopted for one project keeps billing after the project ends. Annual plans are the quietest of all: they renew once, silently, and by the time the charge is noticed the refund window may have closed.</li>
+    <li><strong>Overlapping tools.</strong> Two subscriptions that both write, both generate images, or both take meeting notes. Overlap is normal when you are experimenting; it only becomes waste when nobody removes the loser.</li>
+  </ul>
+
+  <p>One more pattern deserves a mention because it looks like the cure: the <strong>annual-billing discount</strong>. Paying yearly genuinely is cheaper for a tool you use every week. But the discount is also a commitment device — it converts a plan you were testing into a plan you are locked into, and it is at its most tempting exactly when a tool is new and its long-term usefulness is least proven. A reasonable rule is to earn the annual plan: run monthly first, and switch to yearly only after the tool has survived several of your own monthly reviews.</p>
+
+  <h2>The audit, step by step</h2>
+  <ol>
+    <li><strong>List everything.</strong> Go through your card statements, app-store subscriptions and email receipts for the last two months and write down every AI tool that charged you. Include annual plans — divide their price by twelve so they appear in the monthly picture.</li>
+    <li><strong>Record the facts per tool:</strong> price, billing cycle, next renewal date, and what you bought it for.</li>
+    <li><strong>Mark the last real use.</strong> Not "I might use it" — the last date you actually opened it for work. Anything untouched for a full billing cycle is a cancellation candidate.</li>
+    <li><strong>Circle the overlaps.</strong> Group tools by job (writing, images, video, notes, code). Where two paid tools do the same job, keep the one you genuinely prefer and let the other expire.</li>
+    <li><strong>Check the tier.</strong> For the tools you keep, ask whether a cheaper plan or the free tier covers your real usage. Downgrading a plan you under-use is the least painful saving there is.</li>
+    <li><strong>Act, then set a review date.</strong> Cancel or downgrade now, while the list is in front of you, and put a monthly reminder on the calendar to repeat the check. An audit only works if it repeats — new tools will keep arriving.</li>
+  </ol>
+
+  <h2>An example monthly picture</h2>
+  <p>The table below is a <strong>worked example with illustrative numbers</strong> — a fictional freelancer's stack, shown so you can see the shape of the exercise. Your tools and prices will differ.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Tool</th><th>Job</th><th>Monthly cost</th><th>Last real use</th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr><td>AI chatbot plan</td><td>Writing &amp; research</td><td>$20</td><td>This week</td><td>Keep</td></tr>
+        <tr><td>Second AI chatbot plan</td><td>Writing &amp; research</td><td>$20</td><td>6 weeks ago</td><td>Cancel — overlap</td></tr>
+        <tr><td>Image generator</td><td>Thumbnails</td><td>$10</td><td>This week</td><td>Keep</td></tr>
+        <tr><td>AI video tool</td><td>Video editing</td><td>$24</td><td>2 months ago</td><td>Cancel — unused</td></tr>
+        <tr><td>Transcription plan (annual)</td><td>Meeting notes</td><td>$8 (=$96/yr)</td><td>Last month</td><td>Keep, note renewal</td></tr>
+        <tr class="total"><td>Total before audit</td><td></td><td>$82 / month</td><td></td><td></td></tr>
+        <tr class="total"><td>Total after decisions</td><td></td><td>$38 / month</td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Notice what the example does <em>not</em> require: giving up any tool that is actually earning its place. The waste was in the overlap and the forgotten plan — which is where it usually is.</p>
+
+  <h2>How a dedicated tracker helps</h2>
+  <p>A spreadsheet can run this audit once. The harder part is keeping it alive: renewal dates scattered across inboxes, annual plans that surface once a year, new trials quietly converting. A dedicated tracker keeps every subscription in one list — cost, cycle, renewal date, notes on what it is for — and makes the monthly review a five-minute job instead of a fresh excavation. The tool matters less than the habit, but the habit is much easier to keep when the list maintains itself.</p>
+  <p>That is the problem our <strong>AI Spend Tracker</strong> was built for: a simple, one-time-payment tool for recording your AI subscriptions and seeing the real monthly total in one place. It costs <strong>$29, one time</strong> — no subscription to track your subscriptions. Whether it would save you money depends entirely on what your own audit finds, and we make no promise that it will; the audit above is free, and it is the right place to start.</p>
+
+  <div class="cta-box">
+    <p><strong>AI Spend Tracker — $29, one time</strong></p>
+    <p><a href="https://onyxailabs.gumroad.com/l/aispendtracker" target="_blank" rel="noopener">Get AI Spend Tracker on Gumroad</a></p>
+    <p>More reading: <a href="/guides/what-is-onyxiq/">what OnyxIQ is and how it works</a>, or browse <a href="/guides/">all guides</a>.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <div class="brand">ONYX AI LABS</div>
+      <p>One-time-payment AI tools. Buy once, own forever.</p>
+    </div>
+    <div class="foot-links">
+      <a href="mailto:contactonyxailabs@gmail.com">contactonyxailabs@gmail.com</a>
+      <a href="https://onyxailabs.gumroad.com" target="_blank" rel="noopener">Gumroad store</a>
+      <a href="https://www.youtube.com/@onyxaipk" target="_blank" rel="noopener">Onyx AI on YouTube</a>
+    </div>
+  </div>
+  <div class="copyright">© 2026 Onyx AI Labs — Muzaffargarh, Punjab, Pakistan.</div>
+</footer>
+
+</body>
+</html>
