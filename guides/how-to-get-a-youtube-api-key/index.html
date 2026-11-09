@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Get a YouTube API Key: Create, Restrict, Test (2026)</title>
+<meta name="description" content="How to get a YouTube API key step by step: create a Google Cloud project, enable YouTube Data API v3, restrict the key, test it, and understand the 10,000-unit daily quota.">
+<link rel="canonical" href="https://onyxailabs.me/guides/how-to-get-a-youtube-api-key/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://onyxailabs.me/guides/how-to-get-a-youtube-api-key/">
+<meta property="og:title" content="How to Get a YouTube API Key: Create, Restrict, Test (2026)">
+<meta property="og:description" content="How to get a YouTube API key step by step: create a Google Cloud project, enable YouTube Data API v3, restrict the key, test it, and understand the 10,000-unit daily quota.">
+<meta property="og:image" content="https://onyxailabs.me/og-image.png">
+<meta property="og:site_name" content="Onyx AI Labs">
+<meta name="theme-color" content="#05060f">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,4 92,50 50,96 8,50' fill='%23f5c542'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How to Get a YouTube API Key: Create, Restrict, Test (2026)","description":"How to get a YouTube API key step by step: create a Google Cloud project, enable YouTube Data API v3, restrict the key, test it, and understand the 10,000-unit daily quota.","mainEntityOfPage":"https://onyxailabs.me/guides/how-to-get-a-youtube-api-key/","author":{"@type":"Person","name":"Muhammad Mohsin"},"publisher":{"@type":"Organization","name":"Onyx AI Labs","url":"https://onyxailabs.me/"}}
+</script>
+<style>
+:root{
+  --bg:#05060f; --bg2:#0a0c1d; --panel:#0e1126; --panel2:#12152e;
+  --line:rgba(255,255,255,.09); --txt:#eef0ff; --muted:#a7abd0;
+  --gold:#f5c542; --gold2:#ffdf8e; --violet:#7c5cff; --green:#2ee6a8;
+  --radius:18px; --max:1100px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',system-ui,Arial,sans-serif;line-height:1.7}
+h1,h2,h3{font-family:'Space Grotesk','Inter',sans-serif;line-height:1.2}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+::selection{background:var(--gold);color:#111}
+header{border-bottom:1px solid var(--line);background:rgba(5,6,15,.9)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:var(--max);margin:0 auto;padding:16px 22px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--txt);font-family:'Space Grotesk';font-weight:700;letter-spacing:.14em;font-size:17px}
+.logo:hover{text-decoration:none}
+.logo .gem{width:28px;height:28px;flex:none}
+.logo small{display:block;font-size:9px;letter-spacing:.34em;color:var(--gold);font-weight:600}
+.nav-links{display:flex;gap:24px;flex-wrap:wrap}
+.nav-links a{color:var(--muted);font-size:14.5px;font-weight:500;text-decoration:none}
+.nav-links a:hover{color:#fff;text-decoration:none}
+.article{max-width:760px;margin:0 auto;padding:54px 22px 72px}
+.kicker{color:var(--gold);font-weight:700;letter-spacing:.26em;font-size:12px;text-transform:uppercase;margin-bottom:14px}
+.article h1{font-size:clamp(32px,5vw,46px);margin-bottom:20px}
+.article h2{font-size:clamp(23px,3.4vw,29px);margin:40px 0 12px}
+.article h3{font-size:19px;margin:26px 0 8px}
+.article p{color:var(--muted);font-size:16.5px;margin-bottom:16px}
+.article p.lede{font-size:18.5px;color:#dfe2ff}
+.article ul{color:var(--muted);font-size:16.5px;margin:0 0 16px 22px}
+.article li{margin-bottom:8px}
+.article strong{color:var(--txt)}
+.example-box{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid rgba(245,197,66,.35);border-radius:var(--radius);padding:26px;margin:26px 0}
+.example-box h3{margin-top:0;color:var(--gold2)}
+.example-box p:last-child{margin-bottom:0}
+.cta-box{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--radius);padding:26px;margin-top:38px}
+.cta-box p{margin-bottom:10px}
+.cta-box p:last-child{margin-bottom:0}
+footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 22px 30px}
+.foot{max-width:var(--max);margin:0 auto;display:flex;flex-wrap:wrap;gap:14px 44px;justify-content:space-between}
+.foot .brand{font-family:'Space Grotesk';font-weight:700;letter-spacing:.14em}
+.foot p,.foot a{color:var(--muted);font-size:14.5px}
+.foot a:hover{color:var(--gold)}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.copyright{max-width:var(--max);margin:26px auto 0;padding-top:18px;border-top:1px solid var(--line);color:#6d7199;font-size:13px}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="logo" href="/" aria-label="Onyx AI Labs home">
+      <svg class="gem" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,4 92,50 50,96 8,50" fill="none" stroke="#f5c542" stroke-width="7"/><polygon points="50,26 72,50 50,74 28,50" fill="#f5c542"/></svg>
+      <span>ONYX<small>AI LABS</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="article">
+  <div class="kicker">Guide</div>
+  <h1>How to Get a YouTube API Key: Create, Restrict, Test (2026)</h1>
+
+  <p class="lede">You get a YouTube API key by creating a free Google Cloud project, enabling the YouTube Data API v3 inside it, and generating a key under Credentials — the whole process takes about five minutes and costs nothing. The two steps most people skip are the ones that matter: restricting the key so it can only call the YouTube API, and understanding the 10,000-unit daily quota before you build anything on top of it.</p>
+
+  <h2>Step 1 — Create a Google Cloud project</h2>
+  <p>Go to <strong>console.cloud.google.com</strong> and sign in with any Google account. At the top of the page, open the project picker and choose <strong>New Project</strong>. Give it a recognisable name — "youtube-tools" is fine — and create it. A project is simply Google's container for your API access: your key, your quota and your usage graphs all live inside it. You do not need a billing account for the YouTube Data API, and creating the project does not charge anything.</p>
+
+  <h2>Step 2 — Enable the YouTube Data API v3</h2>
+  <p>With your new project selected, go to <strong>APIs &amp; Services → Library</strong>, search for <strong>YouTube Data API v3</strong>, open it and click <strong>Enable</strong>. This is the step beginners most often miss: a key created in a project where the API is not enabled will fail on every call, usually with an error that says the API has not been used in the project. Enable first, create the key second.</p>
+
+  <h2>Step 3 — Create the API key</h2>
+  <p>Now go to <strong>APIs &amp; Services → Credentials</strong>, click <strong>Create Credentials</strong> and choose <strong>API key</strong>. Google generates the key immediately and shows it once in a dialog — copy it into a password manager or a private note, then click the key's name to open its settings. That settings page is where the important part happens, because a brand-new key is unrestricted: anyone who obtains it can use it against any Google API your project has enabled, spending your quota. Fix that before you use the key anywhere.</p>
+
+  <h2>Step 4 — Restrict the key (do not skip this)</h2>
+  <p>Two kinds of restriction exist, and you want at least the first one.</p>
+  <h3>API restriction</h3>
+  <p>Under <strong>API restrictions</strong>, switch from "Don't restrict key" to <strong>Restrict key</strong> and select only <strong>YouTube Data API v3</strong>. From now on, even if the key leaks, it can only ever call the YouTube API — it cannot touch your other Google services. This single setting removes most of the real-world risk of an API key, and it takes twenty seconds.</p>
+  <h3>Application restriction</h3>
+  <p>Under <strong>Application restrictions</strong> you can also limit where the key works from: specific websites (HTTP referrers) for a browser-based tool, or specific IP addresses for a server. If you are pasting the key into a desktop tool that runs on your own machine, leaving this unset is workable — but the API restriction above is not optional. Save the key settings and give Google a few minutes to apply them.</p>
+
+  <h2>Step 5 — Test the key</h2>
+  <p>A key you have not tested is a hope, not a setup. The fastest honest test is a single read-only call: open your browser and request your own channel's public data by replacing YOUR_KEY in a URL of this shape: <strong>youtube.googleapis.com/youtube/v3/channels?part=snippet&amp;forHandle=@YourHandle&amp;key=YOUR_KEY</strong>. If the key, the project and the enabled API are all correct, you get a block of JSON containing your channel's public name and description. If something is wrong, the JSON contains an error instead — and the error message tells you which of the three pieces to fix: API not enabled, key invalid, or quota exceeded. A JSON response, good or bad, means you are talking to the real API.</p>
+
+  <h2>Quota basics — the 10,000 units that run your day</h2>
+  <p>The YouTube Data API is not charged in money; it is charged in <strong>quota units</strong>, and every project gets <strong>10,000 units per day</strong> by default, resetting at midnight Pacific time. Different calls cost different amounts, and the difference is dramatic:</p>
+  <ul>
+    <li><strong>Reading data is cheap.</strong> Listing a channel, a video or a playlist's details typically costs <strong>1 unit</strong> per call.</li>
+    <li><strong>Search is expensive.</strong> One <strong>search call costs 100 units</strong> — so your entire daily budget buys roughly <strong>100 searches a day</strong>, and a careless loop can burn the day's quota before breakfast.</li>
+    <li><strong>Errors look alike.</strong> When the quota is gone, calls fail with a 403 <em>quotaExceeded</em> error until the reset. It is not a ban and it is not your key breaking; it is an empty tank.</li>
+  </ul>
+  <p>The practical lesson: design tools and habits around reads, and treat searches as a budget. Watch your real usage under <strong>APIs &amp; Services → Dashboard</strong> in the same project — the graph shows exactly which calls are spending your units.</p>
+
+  <h2>Keep the key secret — and the BYOK idea</h2>
+  <p>Your key is a password for your quota. Never paste it into a public GitHub repository (automated scanners harvest keys from public code within minutes), never embed it in a web page you publish, and never share screenshots that show it. If a key does leak, delete it in Credentials and create a fresh one — rotation is free and instant.</p>
+  <p>This is also why well-built YouTube tools ask for <strong>your own key</strong> instead of shipping theirs — a model called <strong>BYOK, bring your own key</strong>. Each user's activity spends their own project's 10,000 daily units rather than everyone's traffic draining one shared quota. Our own tool OnyxIQ works this way, which is why this setup is the first step in its <a href="/guides/what-is-onyxiq/">guide to what OnyxIQ is</a>: your key, your quota, your data.</p>
+
+  <h2>Honest limits — what to watch out for</h2>
+  <ul>
+    <li><strong>An API key is not a login.</strong> A key reads public data only. Anything that touches private channel data or manages a channel — uploading, editing your own videos through the API, reading your private analytics — requires OAuth sign-in with the channel owner's consent, which is a separate, more involved setup.</li>
+    <li><strong>The default quota is a ceiling, not a suggestion.</strong> More quota exists, but increases are granted by Google after a compliance review, not by paying a fee or toggling a setting.</li>
+    <li><strong>Keys inside browser extensions and desktop apps can be extracted.</strong> That is normal for this kind of key; the API restriction from Step 4 is what keeps an extracted key from becoming a serious problem.</li>
+    <li><strong>Do not build on other people's keys.</strong> A tool that asks you to paste a stranger's key, or offers you one, is asking you to share someone else's quota and risk — decline.</li>
+  </ul>
+
+  <h2>Frequently asked questions</h2>
+  <h3>Is a YouTube API key free?</h3>
+  <p>Yes. The project, the key and the default 10,000 daily quota units cost nothing, and no billing account is required for the YouTube Data API. What you spend is quota, not money — which is why search calls, at 100 units each, are the thing to budget.</p>
+  <h3>Why does my key return a 403 error?</h3>
+  <p>Three causes cover almost every case: the YouTube Data API v3 is not enabled in your project, the day's quota is exhausted (a <em>quotaExceeded</em> message), or your restrictions block the call — for example, an application restriction that does not include the place you are calling from. The error JSON names which one it is; read it before changing anything.</p>
+  <h3>What is the difference between an API key and OAuth?</h3>
+  <p>An API key identifies your project and authorises public, read-only data access. OAuth identifies a person: the channel owner signs in and grants specific permissions, which is what any tool needs to act on a channel. Keys are for reading the public YouTube; OAuth is for touching someone's account.</p>
+
+  <div class="cta-box">
+    <p><strong>Your key is ready — put it to work</strong></p>
+    <p>This exact key is what powers the pre-publish scoring in our <a href="/guides/youtube-seo-checklist/">YouTube SEO checklist</a> — the method we use to check a video's title, description and tags before it goes live.</p>
+    <p>More reading: <a href="/guides/how-to-set-up-an-mcp-server/">how to set up an MCP server</a>, or browse <a href="/guides/">all guides</a>.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <div class="brand">ONYX AI LABS</div>
+      <p>One-time-payment AI tools. Buy once, own forever.</p>
+    </div>
+    <div class="foot-links">
+      <a href="mailto:contactonyxailabs@gmail.com">contactonyxailabs@gmail.com</a>
+      <a href="https://onyxailabs.gumroad.com" target="_blank" rel="noopener">Gumroad store</a>
+      <a href="https://www.youtube.com/@onyxaipk" target="_blank" rel="noopener">Onyx AI on YouTube</a>
+    </div>
+  </div>
+  <div class="copyright">© 2026 Onyx AI Labs — Muzaffargarh, Punjab, Pakistan.</div>
+</footer>
+
+</body>
+</html>
