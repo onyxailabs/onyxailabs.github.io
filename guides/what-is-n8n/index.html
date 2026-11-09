@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is n8n? A Beginner's Guide to Workflow Automation (2026)</title>
+<meta name="description" content="What is n8n? A beginner's guide to workflow automation: nodes, triggers and workflows explained simply, example automations, self-hosting vs n8n Cloud, and the honest limits.">
+<link rel="canonical" href="https://onyxailabs.me/guides/what-is-n8n/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://onyxailabs.me/guides/what-is-n8n/">
+<meta property="og:title" content="What Is n8n? A Beginner's Guide to Workflow Automation (2026)">
+<meta property="og:description" content="What is n8n? A beginner's guide to workflow automation: nodes, triggers and workflows explained simply, example automations, self-hosting vs n8n Cloud, and the honest limits.">
+<meta property="og:image" content="https://onyxailabs.me/og-image.png">
+<meta property="og:site_name" content="Onyx AI Labs">
+<meta name="theme-color" content="#05060f">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,4 92,50 50,96 8,50' fill='%23f5c542'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"What Is n8n? A Beginner's Guide to Workflow Automation (2026)","description":"What is n8n? A beginner's guide to workflow automation: nodes, triggers and workflows explained simply, example automations, self-hosting vs n8n Cloud, and the honest limits.","mainEntityOfPage":"https://onyxailabs.me/guides/what-is-n8n/","author":{"@type":"Person","name":"Muhammad Mohsin"},"publisher":{"@type":"Organization","name":"Onyx AI Labs","url":"https://onyxailabs.me/"}}
+</script>
+<style>
+:root{
+  --bg:#05060f; --bg2:#0a0c1d; --panel:#0e1126; --panel2:#12152e;
+  --line:rgba(255,255,255,.09); --txt:#eef0ff; --muted:#a7abd0;
+  --gold:#f5c542; --gold2:#ffdf8e; --violet:#7c5cff; --green:#2ee6a8;
+  --radius:18px; --max:1100px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',system-ui,Arial,sans-serif;line-height:1.7}
+h1,h2,h3{font-family:'Space Grotesk','Inter',sans-serif;line-height:1.2}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+::selection{background:var(--gold);color:#111}
+header{border-bottom:1px solid var(--line);background:rgba(5,6,15,.9)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:var(--max);margin:0 auto;padding:16px 22px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--txt);font-family:'Space Grotesk';font-weight:700;letter-spacing:.14em;font-size:17px}
+.logo:hover{text-decoration:none}
+.logo .gem{width:28px;height:28px;flex:none}
+.logo small{display:block;font-size:9px;letter-spacing:.34em;color:var(--gold);font-weight:600}
+.nav-links{display:flex;gap:24px;flex-wrap:wrap}
+.nav-links a{color:var(--muted);font-size:14.5px;font-weight:500;text-decoration:none}
+.nav-links a:hover{color:#fff;text-decoration:none}
+.article{max-width:760px;margin:0 auto;padding:54px 22px 72px}
+.kicker{color:var(--gold);font-weight:700;letter-spacing:.26em;font-size:12px;text-transform:uppercase;margin-bottom:14px}
+.article h1{font-size:clamp(32px,5vw,46px);margin-bottom:20px}
+.article h2{font-size:clamp(23px,3.4vw,29px);margin:40px 0 12px}
+.article h3{font-size:19px;margin:26px 0 8px}
+.article p{color:var(--muted);font-size:16.5px;margin-bottom:16px}
+.article p.lede{font-size:18.5px;color:#dfe2ff}
+.article ul{color:var(--muted);font-size:16.5px;margin:0 0 16px 22px}
+.article li{margin-bottom:8px}
+.article strong{color:var(--txt)}
+.example-box{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid rgba(245,197,66,.35);border-radius:var(--radius);padding:26px;margin:26px 0}
+.example-box h3{margin-top:0;color:var(--gold2)}
+.example-box p:last-child{margin-bottom:0}
+.cta-box{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--radius);padding:26px;margin-top:38px}
+.cta-box p{margin-bottom:10px}
+.cta-box p:last-child{margin-bottom:0}
+footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 22px 30px}
+.foot{max-width:var(--max);margin:0 auto;display:flex;flex-wrap:wrap;gap:14px 44px;justify-content:space-between}
+.foot .brand{font-family:'Space Grotesk';font-weight:700;letter-spacing:.14em}
+.foot p,.foot a{color:var(--muted);font-size:14.5px}
+.foot a:hover{color:var(--gold)}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.copyright{max-width:var(--max);margin:26px auto 0;padding-top:18px;border-top:1px solid var(--line);color:#6d7199;font-size:13px}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="logo" href="/" aria-label="Onyx AI Labs home">
+      <svg class="gem" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,4 92,50 50,96 8,50" fill="none" stroke="#f5c542" stroke-width="7"/><polygon points="50,26 72,50 50,74 28,50" fill="#f5c542"/></svg>
+      <span>ONYX<small>AI LABS</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="article">
+  <div class="kicker">Guide</div>
+  <h1>What Is n8n? A Beginner's Guide to Workflow Automation (2026)</h1>
+
+  <p class="lede">n8n is a workflow automation tool: it connects the apps and services you already use — email, spreadsheets, messaging, AI models, your own data — and moves information between them automatically, following rules you design on a visual canvas. You build a chain of steps once — when this happens, do that, then that — and n8n runs it tirelessly from then on, either on your own server for free or on n8n's managed cloud for a monthly plan.</p>
+
+  <h2>The three ideas that explain everything</h2>
+  <h3>Workflows</h3>
+  <p>A <strong>workflow</strong> is one complete automation, drawn as a line of boxes on a canvas. Read it left to right like a sentence: something happens, the data passes through each step, and an outcome comes out the other end — a reply sent, a row saved, a summary written. Each workflow does one job, and a real system is usually a handful of workflows, each small enough to understand at a glance.</p>
+  <h3>Triggers</h3>
+  <p>Every workflow starts with a <strong>trigger</strong> — the event that wakes it up. Common ones: a <strong>schedule</strong> ("every morning at 8"), a <strong>webhook</strong> ("whenever another service sends data to this address"), a <strong>form submission</strong>, or a change in an app such as a new row in a spreadsheet. Choosing the trigger is choosing when the automation runs: instantly on an event, or regularly on a clock.</p>
+  <h3>Nodes</h3>
+  <p>Each box in the chain is a <strong>node</strong> — one action or one connection. There are nodes for hundreds of services (Gmail, Google Sheets, Slack, WhatsApp, AI models) and utility nodes that reshape data: filter these items, merge those lists, wait an hour, branch on a condition ("if the message contains an order number, do this; otherwise, do that"). You connect a service once, with your own login or API key stored as a <strong>credential</strong>, and then reuse it in any node. Data travels between nodes as structured items — think of each item as a labelled envelope the next node opens.</p>
+
+  <h2>Example automations a beginner can picture</h2>
+  <ul>
+    <li><strong>Form to follow-up:</strong> someone submits your contact form → their details land in a spreadsheet → you get an instant notification → they get a polite confirmation message. No copying and pasting, ever.</li>
+    <li><strong>The morning brief:</strong> every day at 8 a.m. → fetch yesterday's orders from your sheet → ask an AI model to summarise them in three lines → send the summary to your phone.</li>
+    <li><strong>Content pipeline:</strong> a new video is published → its details are logged to a content tracker → a draft announcement post is prepared for your approval.</li>
+    <li><strong>Customer auto-reply:</strong> a WhatsApp message arrives → a workflow reads it, answers common questions from your FAQ, and hands anything unusual to you — the full build is explained in our guide to <a href="/guides/whatsapp-automation-with-n8n/">WhatsApp automation with n8n</a>.</li>
+  </ul>
+  <p>Notice the pattern: none of these replace a person's judgement. They remove the carrying — the copying, checking, reminding and filing that sits between the moments where a human actually decides something.</p>
+
+  <h2>Self-host or n8n Cloud?</h2>
+  <p>n8n's code is source-available under a fair-code licence, and <strong>self-hosting it for your own use is free</strong>: install it on a small server you rent (or a machine you own), and your workflows and credentials live under your control, with no per-automation rent. The trade is responsibility: updates, backups, security and uptime are yours to manage, and you need to be comfortable with a little server administration — or willing to learn it.</p>
+  <p><strong>n8n Cloud</strong> is the same tool run for you: paid plans, managed updates, nothing to install, support included. It suits people who would rather pay monthly than maintain a server. Neither choice locks you in permanently — workflows can be exported as files and moved — but be honest about which resource you actually have: time and technical appetite, or budget. Picking self-hosting to save money and then never updating it is the most common false economy in this space.</p>
+
+  <h2>Where AI fits in</h2>
+  <p>n8n is not itself an AI; it is the plumbing that lets AI do useful work inside a process. Its AI nodes connect to models from providers such as OpenAI, Anthropic and Google, so a workflow can classify a message, draft a reply, summarise a document or extract details from text — and then act on the result with ordinary nodes: save it, send it, file it. The sensible pattern is AI for the judgement-shaped step in the middle, wrapped in deterministic rules before and after: the AI drafts, a rule checks, a human approves anything that leaves the building.</p>
+
+  <h2>A sensible first week with n8n</h2>
+  <p>Begin smaller than your ambitions. On day one, pick your route — Cloud for zero setup, or self-hosted if you already run a server — and connect exactly one service you use daily, such as your email or spreadsheet app. Then build the smallest workflow that does something real: the form-to-spreadsheet-to-notification chain from the examples above is the classic first build, because it touches a trigger, two services and a branch in under an hour. Let it run for a few days and watch it. Only then add a second workflow. This order matters: most abandoned n8n setups are not failed tools, they are five half-built workflows started on the same excited evening, none of which ever ran long enough to be trusted.</p>
+
+  <h2>Honest limits — what to watch out for</h2>
+  <ul>
+    <li><strong>There is a learning curve.</strong> The canvas is friendly, but thinking in triggers, items and branches takes a few evenings. Your first workflow will be slow; your fifth will not.</li>
+    <li><strong>Self-hosting means you are the IT department.</strong> If the server sleeps, your automations sleep. Backups and updates are part of the real price of "free".</li>
+    <li><strong>Connected services still have their own rules and costs.</strong> n8n can send the message, but Meta still charges for WhatsApp conversations, and an AI model still bills for its usage. n8n removes glue work, not the underlying platforms' pricing.</li>
+    <li><strong>The licence has conditions.</strong> n8n's fair-code terms allow using it for your own business, but restrict offering n8n itself as a hosted service to others. Read the terms if you plan to build a product on top of it.</li>
+    <li><strong>Automation amplifies whatever you feed it.</strong> A workflow fed messy spreadsheet data produces messy outcomes at machine speed. Clean inputs first, automate second.</li>
+  </ul>
+
+  <h2>Frequently asked questions</h2>
+  <h3>Is n8n free?</h3>
+  <p>Self-hosting n8n for your own use is free — you pay only for the server it runs on, which can be a modest one. n8n Cloud is a paid subscription. Either way, the third-party services you connect may have their own free tiers and paid plans.</p>
+  <h3>How is n8n different from Zapier or Make?</h3>
+  <p>The job is the same — connecting apps — but the shape differs. Zapier and Make are hosted-only and priced by usage volume; n8n can be self-hosted, gives you a more technical, node-level control of data, and suits builders who want their workflows and credentials on their own infrastructure. Simplicity-first users often prefer the hosted tools; control-first builders choose n8n.</p>
+  <h3>Do I need to know how to code?</h3>
+  <p>Not for the basics — triggers, service nodes and simple branches are all visual. You will go further, faster, if you can read simple expressions and structured data (JSON), because that is the language the data travels in. Treat it as a skill the tool teaches you as you use it.</p>
+
+  <div class="cta-box">
+    <p><strong>See n8n doing a real job</strong></p>
+    <p>Our guide to <a href="/guides/whatsapp-automation-with-n8n/">WhatsApp automation with n8n</a> builds a complete small-business system from these ideas, and the setup it depends on is in the <a href="/guides/how-to-set-up-whatsapp-cloud-api/">WhatsApp Cloud API guide</a>.</p>
+    <p>More reading: browse <a href="/guides/">all guides</a>.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <div class="brand">ONYX AI LABS</div>
+      <p>One-time-payment AI tools. Buy once, own forever.</p>
+    </div>
+    <div class="foot-links">
+      <a href="mailto:contactonyxailabs@gmail.com">contactonyxailabs@gmail.com</a>
+      <a href="https://onyxailabs.gumroad.com" target="_blank" rel="noopener">Gumroad store</a>
+      <a href="https://www.youtube.com/@onyxaipk" target="_blank" rel="noopener">Onyx AI on YouTube</a>
+    </div>
+  </div>
+  <div class="copyright">© 2026 Onyx AI Labs — Muzaffargarh, Punjab, Pakistan.</div>
+</footer>
+
+</body>
+</html>
