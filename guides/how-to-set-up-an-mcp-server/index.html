@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Set Up an MCP Server: Install, Connect, Test (2026)</title>
+<meta name="description" content="How to set up an MCP server step by step: install the official filesystem server with one npx command, write the mcpServers JSON config, connect in MCP Inspector and test it live.">
+<link rel="canonical" href="https://onyxailabs.me/guides/how-to-set-up-an-mcp-server/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://onyxailabs.me/guides/how-to-set-up-an-mcp-server/">
+<meta property="og:title" content="How to Set Up an MCP Server: Install, Connect, Test (2026)">
+<meta property="og:description" content="How to set up an MCP server step by step: install the official filesystem server with one npx command, write the mcpServers JSON config, connect in MCP Inspector and test it live.">
+<meta property="og:image" content="https://onyxailabs.me/og-image.png">
+<meta property="og:site_name" content="Onyx AI Labs">
+<meta name="theme-color" content="#05060f">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,4 92,50 50,96 8,50' fill='%23f5c542'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How to Set Up an MCP Server: Install, Connect, Test (2026)","description":"How to set up an MCP server step by step: install the official filesystem server with one npx command, write the mcpServers JSON config, connect in MCP Inspector and test it live.","mainEntityOfPage":"https://onyxailabs.me/guides/how-to-set-up-an-mcp-server/","author":{"@type":"Person","name":"Muhammad Mohsin"},"publisher":{"@type":"Organization","name":"Onyx AI Labs","url":"https://onyxailabs.me/"}}
+</script>
+<style>
+:root{
+  --bg:#05060f; --bg2:#0a0c1d; --panel:#0e1126; --panel2:#12152e;
+  --line:rgba(255,255,255,.09); --txt:#eef0ff; --muted:#a7abd0;
+  --gold:#f5c542; --gold2:#ffdf8e; --violet:#7c5cff; --green:#2ee6a8;
+  --radius:18px; --max:1100px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',system-ui,Arial,sans-serif;line-height:1.7}
+h1,h2,h3{font-family:'Space Grotesk','Inter',sans-serif;line-height:1.2}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+::selection{background:var(--gold);color:#111}
+header{border-bottom:1px solid var(--line);background:rgba(5,6,15,.9)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:var(--max);margin:0 auto;padding:16px 22px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--txt);font-family:'Space Grotesk';font-weight:700;letter-spacing:.14em;font-size:17px}
+.logo:hover{text-decoration:none}
+.logo .gem{width:28px;height:28px;flex:none}
+.logo small{display:block;font-size:9px;letter-spacing:.34em;color:var(--gold);font-weight:600}
+.nav-links{display:flex;gap:24px;flex-wrap:wrap}
+.nav-links a{color:var(--muted);font-size:14.5px;font-weight:500;text-decoration:none}
+.nav-links a:hover{color:#fff;text-decoration:none}
+.article{max-width:760px;margin:0 auto;padding:54px 22px 72px}
+.kicker{color:var(--gold);font-weight:700;letter-spacing:.26em;font-size:12px;text-transform:uppercase;margin-bottom:14px}
+.article h1{font-size:clamp(32px,5vw,46px);margin-bottom:20px}
+.article h2{font-size:clamp(23px,3.4vw,29px);margin:40px 0 12px}
+.article h3{font-size:19px;margin:26px 0 8px}
+.article p{color:var(--muted);font-size:16.5px;margin-bottom:16px}
+.article p.lede{font-size:18.5px;color:#dfe2ff}
+.article ul{color:var(--muted);font-size:16.5px;margin:0 0 16px 22px}
+.article li{margin-bottom:8px}
+.article strong{color:var(--txt)}
+.example-box{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid rgba(245,197,66,.35);border-radius:var(--radius);padding:26px;margin:26px 0}
+.example-box h3{margin-top:0;color:var(--gold2)}
+.example-box p:last-child{margin-bottom:0}
+.cta-box{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--radius);padding:26px;margin-top:38px}
+.cta-box p{margin-bottom:10px}
+.cta-box p:last-child{margin-bottom:0}
+footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 22px 30px}
+.foot{max-width:var(--max);margin:0 auto;display:flex;flex-wrap:wrap;gap:14px 44px;justify-content:space-between}
+.foot .brand{font-family:'Space Grotesk';font-weight:700;letter-spacing:.14em}
+.foot p,.foot a{color:var(--muted);font-size:14.5px}
+.foot a:hover{color:var(--gold)}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.copyright{max-width:var(--max);margin:26px auto 0;padding-top:18px;border-top:1px solid var(--line);color:#6d7199;font-size:13px}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="logo" href="/" aria-label="Onyx AI Labs home">
+      <svg class="gem" viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,4 92,50 50,96 8,50" fill="none" stroke="#f5c542" stroke-width="7"/><polygon points="50,26 72,50 50,74 28,50" fill="#f5c542"/></svg>
+      <span>ONYX<small>AI LABS</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="article">
+  <div class="kicker">Guide</div>
+  <h1>How to Set Up an MCP Server: Install, Connect, Test (2026)</h1>
+
+  <p class="lede">To set up an MCP server, you install Node.js, add one small JSON block — the <strong>mcpServers</strong> config — to your AI app, pointing it at the official filesystem server and at one folder you choose. The app then launches the server itself, and you can prove the whole thing works in the MCP Inspector: list the tools, read a real file, and watch the server refuse to touch anything outside the folder you allowed.</p>
+
+  <h2>What MCP actually is, in plain words</h2>
+  <p><strong>MCP — the Model Context Protocol — is an open standard for connecting AI apps to tools and data.</strong> Without it, every AI assistant is sealed inside its chat window: it can talk about your files, but it cannot open one. With MCP, small programs called <strong>servers</strong> each offer a set of <strong>tools</strong> — read this file, search that database, check this calendar — and any AI app that speaks the protocol (Claude Desktop, Cursor, VS Code and others) can call those tools in a standard way. The app is the client, the server does the work, and the protocol is the shared language between them. You do not build the first server yourself; you install an official one and learn the pattern.</p>
+
+  <h2>What you need</h2>
+  <ul>
+    <li><strong>Node.js installed</strong> on your computer — it includes <strong>npx</strong>, the command that downloads and runs the server in one step. Check by running <em>node --version</em> in a terminal.</li>
+    <li><strong>One folder you are willing to share</strong> with the AI — create a fresh practice folder with a couple of harmless text files in it. Not your whole drive, not your documents folder. One small folder, on purpose.</li>
+    <li><strong>An MCP client</strong> — the Inspector below is enough for testing; afterwards the same config works in your everyday AI app.</li>
+  </ul>
+
+  <h2>Step 1 — The one command that runs the server</h2>
+  <p>The official filesystem server is published as an npm package, and this single command runs it, with your chosen folder as its argument:</p>
+  <p><strong>npx -y @modelcontextprotocol/server-filesystem /path/to/your/folder</strong></p>
+  <p>The <strong>-y</strong> simply answers "yes" to the first-run download prompt. Notice what the command really says: <em>run this server, and this folder is its whole world.</em> You do not need to memorise the command — you will not type it each time — because the config in the next step stores it permanently. But understanding it matters: every MCP setup, however fancy, is ultimately a command like this one, launched by the client.</p>
+
+  <h2>Step 2 — Write the mcpServers JSON config</h2>
+  <p>Every MCP client reads the same shape of configuration. Inside your AI app's settings or config file, you add a block like this:</p>
+  <div class="example-box">
+    <h3>The config block (copy the shape, change the path)</h3>
+    <p>{<br>
+    &nbsp;&nbsp;"mcpServers": {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;"filesystem": {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"command": "npx",<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/your/folder"]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;}<br>
+    }</p>
+    <p>Three ideas carry the whole system: the <strong>name</strong> ("filesystem" — your label), the <strong>command</strong> that launches the server, and the <strong>args</strong>, where the last entry is the folder the server may touch. In Claude Desktop this block lives in a file called <em>claude_desktop_config.json</em>; other clients keep it in their MCP settings screen — the contents are identical.</p>
+  </div>
+  <p>Restart the client after saving. On startup it launches the server silently in the background, asks it what tools it offers, and makes those tools available to the AI. If the server fails to appear, the cause is almost always in this block — a wrong folder path or a JSON slip such as a missing comma — so check it character by character before suspecting anything grander.</p>
+
+  <h2>Step 3 — Connect in the MCP Inspector and see the tools</h2>
+  <p>Before trusting the setup inside a chat app, test it in the open with the official testing tool. Run <strong>npx @modelcontextprotocol/inspector</strong>, and the Inspector opens in your browser. Enter the same command and arguments from your config — the filesystem server and your folder — and click <strong>Connect</strong>. Then open the <strong>Tools</strong> tab and choose <strong>List Tools</strong>.</p>
+  <p>You should see the server's full toolbox laid out — fourteen tools in the current official build, including <strong>list_directory</strong>, <strong>read_text_file</strong>, <strong>read_multiple_files</strong>, <strong>search_files</strong>, <strong>write_file</strong> and <strong>edit_file</strong>, plus directory and file-info helpers. This list is the honest answer to "what can this server do?" — nothing more, nothing hidden. An AI connected to this server can call exactly these tools, on exactly your allowed folder.</p>
+
+  <h2>Step 4 — Run real tool calls: list, then read</h2>
+  <p>Still in the Inspector, select <strong>list_directory</strong>, enter your folder's path, and run it. The result is the folder's real contents, returned by the server — proof the chain works from client, to server, to disk. Then select <strong>read_text_file</strong>, point it at one of your practice text files, and run it: the file's actual contents come back. These two calls are the heartbeat of every filesystem workflow — the AI first sees what exists, then reads what it needs, instead of guessing.</p>
+  <p>Now the most instructive test of all: try to read a file that is <strong>outside</strong> your allowed folder — a system file, for example. The server refuses with an access error. That refusal is not a bug; it is the entire safety model working in front of you.</p>
+
+  <h2>The allowed-directory boundary — the part that keeps you safe</h2>
+  <p>An MCP filesystem server can only see the directories named in its arguments. It cannot wander your drive, because paths outside the boundary are rejected before any reading happens. This makes your one real decision simple and serious: <strong>choose the smallest folder that makes the tool useful.</strong> A project folder, yes. Your entire home directory, no. Remember too that this server's toolbox includes writing and editing files, not just reading — inside the boundary, the AI can change things. Start with a practice folder, watch what the tools do, and widen access only when you understand what you are granting. The same discipline appears in our <a href="/guides/how-to-get-a-youtube-api-key/">YouTube API key guide</a>: small permissions, granted on purpose, beat broad access granted casually.</p>
+
+  <h2>Honest limits — what to watch out for</h2>
+  <ul>
+    <li><strong>The server runs only while the client runs.</strong> These local (stdio) servers are launched by your AI app on your machine and stop when it closes. They are personal tools, not always-on cloud services.</li>
+    <li><strong>Config mistakes cause nearly every failure.</strong> Wrong paths, Windows-style versus Mac-style path formats, and JSON punctuation errors account for almost all "it doesn't work" reports. Recheck the block before reinstalling anything.</li>
+    <li><strong>Not every server deserves trust.</strong> A server is a program running on your computer with the permissions you gave it. Prefer official and well-known servers, and read a community server's tool list in the Inspector before connecting it to anything real.</li>
+    <li><strong>Connection is not competence.</strong> MCP gives the AI hands; it does not give it judgement. Review what it writes or changes, especially early on.</li>
+  </ul>
+
+  <h2>Frequently asked questions</h2>
+  <h3>Is MCP free to use?</h3>
+  <p>Yes. The protocol is an open standard, the official filesystem server is free, and the Inspector is free. Costs only enter the picture if you later choose paid servers, paid AI apps or hosted infrastructure — the setup in this guide uses none of them.</p>
+  <h3>Is it safe to let an AI read my files?</h3>
+  <p>It is as safe as the boundary you set. The server can only reach the folders in its arguments, and outside paths are refused — which you proved yourself in Step 4. Keep the boundary small, start with harmless files, and remember the toolbox includes writing tools, so treat real folders with the same care you would give any powerful utility.</p>
+  <h3>How is MCP different from a plugin or an API key?</h3>
+  <p>An API key authorises calls to one company's service. MCP is a shared language that lets many different tools — files, databases, calendars, the web — plug into many different AI apps the same way. One protocol, many servers, instead of a separate integration for every pair.</p>
+
+  <div class="cta-box">
+    <p><strong>Watch it done live</strong></p>
+    <p>This exact setup — install, config, Inspector, live tool calls and the outside-folder refusal — is filmed step by step in the MCP episode of the How-To Series on the <a href="https://www.youtube.com/@onyxaipk" target="_blank" rel="noopener">Onyx AI YouTube channel</a>, recorded in the real tools with nothing staged.</p>
+    <p>More reading: <a href="/guides/what-is-n8n/">what is n8n?</a>, or browse <a href="/guides/">all guides</a>.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <div class="brand">ONYX AI LABS</div>
+      <p>One-time-payment AI tools. Buy once, own forever.</p>
+    </div>
+    <div class="foot-links">
+      <a href="mailto:contactonyxailabs@gmail.com">contactonyxailabs@gmail.com</a>
+      <a href="https://onyxailabs.gumroad.com" target="_blank" rel="noopener">Gumroad store</a>
+      <a href="https://www.youtube.com/@onyxaipk" target="_blank" rel="noopener">Onyx AI on YouTube</a>
+    </div>
+  </div>
+  <div class="copyright">© 2026 Onyx AI Labs — Muzaffargarh, Punjab, Pakistan.</div>
+</footer>
+
+</body>
+</html>
