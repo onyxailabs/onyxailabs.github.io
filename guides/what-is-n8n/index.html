@@ -66,6 +66,38 @@ footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 
 .foot-links{display:flex;gap:22px;flex-wrap:wrap}
 .copyright{max-width:var(--max);margin:26px auto 0;padding-top:18px;border-top:1px solid var(--line);color:#6d7199;font-size:13px}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is n8n free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Self-hosting n8n for your own use is free — you pay only for the server it runs on, which can be a modest one. n8n Cloud is a paid subscription. Either way, the third-party services you connect may have their own free tiers and paid plans."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is n8n different from Zapier or Make?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The job is the same — connecting apps — but the shape differs. Zapier and Make are hosted-only and priced by usage volume; n8n can be self-hosted, gives you a more technical, node-level control of data, and suits builders who want their workflows and credentials on their own infrastructure. Simplicity-first users often prefer the hosted tools; control-first builders choose n8n."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to know how to code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not for the basics — triggers, service nodes and simple branches are all visual. You will go further, faster, if you can read simple expressions and structured data (JSON), because that is the language the data travels in. Treat it as a skill the tool teaches you as you use it."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -133,6 +165,14 @@ footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 
   <p>The job is the same — connecting apps — but the shape differs. Zapier and Make are hosted-only and priced by usage volume; n8n can be self-hosted, gives you a more technical, node-level control of data, and suits builders who want their workflows and credentials on their own infrastructure. Simplicity-first users often prefer the hosted tools; control-first builders choose n8n.</p>
   <h3>Do I need to know how to code?</h3>
   <p>Not for the basics — triggers, service nodes and simple branches are all visual. You will go further, faster, if you can read simple expressions and structured data (JSON), because that is the language the data travels in. Treat it as a skill the tool teaches you as you use it.</p>
+
+  
+  <h2>Related guides</h2>
+  <ul>
+    <li><a href="/guides/whatsapp-automation-with-n8n/">WhatsApp automation with n8n — a practical guide</a></li>
+    <li><a href="/guides/how-to-set-up-whatsapp-cloud-api/">How to set up WhatsApp Cloud API, step by step</a></li>
+    <li><a href="/guides/automate-small-business-with-ai/">How to automate a small business with AI</a></li>
+  </ul>
 
   <div class="cta-box">
     <p><strong>See n8n doing a real job</strong></p>
