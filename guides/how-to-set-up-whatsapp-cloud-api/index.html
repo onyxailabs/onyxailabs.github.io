@@ -66,6 +66,38 @@ footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 
 .foot-links{display:flex;gap:22px;flex-wrap:wrap}
 .copyright{max-width:var(--max);margin:26px auto 0;padding-top:18px;border-top:1px solid var(--line);color:#6d7199;font-size:13px}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is WhatsApp Cloud API free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Creating the app, testing with the test number and messaging your five registered recipients costs nothing. In production, Meta charges per conversation beyond a free monthly allowance, with prices that vary by country and category — so \"free\" is true for setup and testing, not for messaging at scale."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why was my verification document rejected?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The usual reasons are that the document type is not on Meta's accepted list (a bank statement in the address slot is the classic case), the business name or address on the document does not match your business portfolio, or the scan is unreadable. Fix the mismatch, use an accepted document type, and resubmit — do not submit the same rejected document again."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use my existing WhatsApp number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sometimes, through migration, but the simplest and most reliable route is a separate number for the API that is not active in the WhatsApp app. Whichever route you choose, do it before printing the number anywhere, because changing it later means re-verifying."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -130,6 +162,14 @@ footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 
   <p>The usual reasons are that the document type is not on Meta's accepted list (a bank statement in the address slot is the classic case), the business name or address on the document does not match your business portfolio, or the scan is unreadable. Fix the mismatch, use an accepted document type, and resubmit — do not submit the same rejected document again.</p>
   <h3>Can I use my existing WhatsApp number?</h3>
   <p>Sometimes, through migration, but the simplest and most reliable route is a separate number for the API that is not active in the WhatsApp app. Whichever route you choose, do it before printing the number anywhere, because changing it later means re-verifying.</p>
+
+  
+  <h2>Related guides</h2>
+  <ul>
+    <li><a href="/guides/whatsapp-automation-with-n8n/">WhatsApp automation with n8n — a practical guide</a></li>
+    <li><a href="/guides/what-is-n8n/">What is n8n? A beginner's guide</a></li>
+    <li><a href="/guides/ai-chatbot-for-small-business/">AI chatbot for a small business: options and real costs</a></li>
+  </ul>
 
   <div class="cta-box">
     <p><strong>Set up — now what?</strong></p>
