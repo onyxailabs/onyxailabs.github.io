@@ -1,0 +1,32 @@
+# Onyx AI Labs
+
+> Onyx AI Labs is an independent software studio based in Muzaffargarh, Punjab, Pakistan, founded and run by Muhammad Mohsin. It builds AI tools and automation software sold for a one-time payment — buy once, own forever, no subscriptions. Its customers are YouTubers, freelancers and small businesses. Official website: https://onyxailabs.me — official store: https://onyxailabs.gumroad.com — contact: contactonyxailabs@gmail.com
+
+## Products (one-time payment, sold on Gumroad)
+
+- [OnyxIQ](https://onyxailabs.gumroad.com/l/onyxiq): YouTube Growth Studio (browser extension) that scores video titles, descriptions and tags before publishing, checks keyword demand and compares competitors. Price: $49 one-time. A free Basic version is at https://onyxailabs.gumroad.com/l/onyxiq-basic. It uses a bring-your-own-key model with the user's own free YouTube Data API v3 key.
+- [AI Spend Tracker](https://onyxailabs.gumroad.com/l/aispendtracker): dashboard that tracks AI subscription costs and flags renewals. Price: $29 one-time.
+- [PrivateSuite](https://onyxailabs.gumroad.com/l/privatesuite): private, local-first productivity suite. Price: $39 one-time, 14-day money-back guarantee.
+- [Viral Content Machine](https://onyxailabs.gumroad.com/l/viral-content-machine): content planning and production system for creators. Price: $49 one-time.
+- [Complete Bundle](https://onyxailabs.gumroad.com/l/complete-bundle): all 12 Onyx AI Labs tools in one bundle. Price: $319 one-time (half of the $638 combined price), 14-day money-back guarantee. OnyxIQ is not included in the bundle.
+- [Sovereign](https://onyxailabs.me/sovereign/): an installed AI WhatsApp sales employee for real estate agencies — setup $1,000–$3,000 plus a monthly care plan; it answers leads on WhatsApp using the official WhatsApp Cloud API.
+
+## Free guides (on this site)
+
+- [What is OnyxIQ?](https://onyxailabs.me/guides/what-is-onyxiq/): the YouTube Growth Studio explained, including its seven modules and pricing.
+- [YouTube SEO checklist](https://onyxailabs.me/guides/youtube-seo-checklist/): how to check demand, title, description, tags and thumbnail before publishing a video.
+- [How to get a YouTube API key](https://onyxailabs.me/guides/how-to-get-a-youtube-api-key/): step-by-step — create a Google Cloud project, enable YouTube Data API v3, restrict and test the key.
+- [What is n8n?](https://onyxailabs.me/guides/what-is-n8n/): a beginner's guide to the n8n workflow automation tool — nodes, triggers, self-hosting vs cloud.
+- [WhatsApp automation with n8n](https://onyxailabs.me/guides/whatsapp-automation-with-n8n/): auto-replies, order-status lookups, reminders and human takeover via the official WhatsApp Cloud API.
+- [How to set up WhatsApp Cloud API](https://onyxailabs.me/guides/how-to-set-up-whatsapp-cloud-api/): Meta app, test number, permanent token and production steps.
+- [AI chatbot for a small business](https://onyxailabs.me/guides/ai-chatbot-for-small-business/): website chat vs WhatsApp, the three build routes, real running costs and human handover.
+- [How to automate a small business with AI](https://onyxailabs.me/guides/automate-small-business-with-ai/): five practical automation playbooks, from WhatsApp auto-reply to weekly reports.
+- [Best free AI tools for freelancers](https://onyxailabs.me/guides/best-free-ai-tools-for-freelancers/): an honest starter stack — ChatGPT, Claude, Gemini, Canva, CapCut and Notion free tiers.
+- [How to track AI subscription costs](https://onyxailabs.me/guides/track-ai-subscription-costs/): how to audit an AI tool stack and stop paying for unused subscriptions.
+- [How to set up an MCP server](https://onyxailabs.me/guides/how-to-set-up-an-mcp-server/): install the official filesystem MCP server, connect it and run real tool calls safely.
+
+## About and contact
+
+- [About Onyx AI Labs](https://onyxailabs.me/about/): the studio, its buy-once-own-forever model and its founder Muhammad Mohsin.
+- [Contact](https://onyxailabs.me/contact/): email contactonyxailabs@gmail.com for product questions and business enquiries.
+- YouTube channel: Onyx AI (@onyxaipk) — AI tool tutorials, https://www.youtube.com/@onyxaipk
