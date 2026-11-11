@@ -66,6 +66,38 @@ footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 
 .foot-links{display:flex;gap:22px;flex-wrap:wrap}
 .copyright{max-width:var(--max);margin:26px auto 0;padding-top:18px;border-top:1px solid var(--line);color:#6d7199;font-size:13px}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is a YouTube API key free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The project, the key and the default 10,000 daily quota units cost nothing, and no billing account is required for the YouTube Data API. What you spend is quota, not money — which is why search calls, at 100 units each, are the thing to budget."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does my key return a 403 error?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three causes cover almost every case: the YouTube Data API v3 is not enabled in your project, the day's quota is exhausted (a quotaExceeded message), or your restrictions block the call — for example, an application restriction that does not include the place you are calling from. The error JSON names which one it is; read it before changing anything."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between an API key and OAuth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An API key identifies your project and authorises public, read-only data access. OAuth identifies a person: the channel owner signs in and grants specific permissions, which is what any tool needs to act on a channel. Keys are for reading the public YouTube; OAuth is for touching someone's account."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -137,6 +169,14 @@ footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 
   <p>Three causes cover almost every case: the YouTube Data API v3 is not enabled in your project, the day's quota is exhausted (a <em>quotaExceeded</em> message), or your restrictions block the call — for example, an application restriction that does not include the place you are calling from. The error JSON names which one it is; read it before changing anything.</p>
   <h3>What is the difference between an API key and OAuth?</h3>
   <p>An API key identifies your project and authorises public, read-only data access. OAuth identifies a person: the channel owner signs in and grants specific permissions, which is what any tool needs to act on a channel. Keys are for reading the public YouTube; OAuth is for touching someone's account.</p>
+
+  
+  <h2>Related guides</h2>
+  <ul>
+    <li><a href="/guides/what-is-onyxiq/">What is OnyxIQ? The YouTube Growth Studio, explained</a></li>
+    <li><a href="/guides/youtube-seo-checklist/">YouTube SEO checklist: score your video before you publish</a></li>
+    <li><a href="/guides/how-to-set-up-an-mcp-server/">How to set up an MCP server, step by step</a></li>
+  </ul>
 
   <div class="cta-box">
     <p><strong>Your key is ready — put it to work</strong></p>
