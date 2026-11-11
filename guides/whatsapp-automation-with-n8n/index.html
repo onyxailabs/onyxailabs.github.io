@@ -66,6 +66,38 @@ footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 
 .foot-links{display:flex;gap:22px;flex-wrap:wrap}
 .copyright{max-width:var(--max);margin:26px auto 0;padding-top:18px;border-top:1px solid var(--line);color:#6d7199;font-size:13px}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does WhatsApp automation with n8n use the official WhatsApp API?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The workflows in this guide connect through Meta's WhatsApp Cloud API, the official route for business messaging. That keeps the number compliant with WhatsApp's rules, unlike unofficial gateways that can get a number banned."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a human take over a conversation from the automation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — human takeover is one of the core building blocks in this guide. The automation handles routine questions, order lookups and reminders, and hands the conversation to a person whenever a message falls outside what it can answer safely."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does it cost to run WhatsApp automation with n8n?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "n8n itself is free if you self-host it. Your running cost is Meta's per-conversation pricing on the Cloud API, which is modest at small-business volumes, plus wherever you host n8n. There is no per-message platform fee on top."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -122,6 +154,24 @@ footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 
 
   <h2>Where WhatsAppKit fits</h2>
   <p><strong>WhatsAppKit</strong> is Onyx AI Labs' ready-made set of n8n workflows covering exactly the blocks above — auto-reply and FAQ, order-status lookup, reminders and human takeover — so instead of building each workflow from a blank canvas, you install tested workflows and adapt them to your business, with a step-by-step guide written from steps that were actually run. It costs <strong>$49, one time</strong>. It does not remove the limits above: you still register your own number, still get Meta's approval, and still pay Meta's conversation fees. What it removes is the blank-canvas work.</p>
+
+  
+  <h2>Frequently asked questions</h2>
+  <h3>Does WhatsApp automation with n8n use the official WhatsApp API?</h3>
+  <p>Yes. The workflows in this guide connect through Meta's WhatsApp Cloud API, the official route for business messaging. That keeps the number compliant with WhatsApp's rules, unlike unofficial gateways that can get a number banned.</p>
+  <h3>Can a human take over a conversation from the automation?</h3>
+  <p>Yes — human takeover is one of the core building blocks in this guide. The automation handles routine questions, order lookups and reminders, and hands the conversation to a person whenever a message falls outside what it can answer safely.</p>
+  <h3>What does it cost to run WhatsApp automation with n8n?</h3>
+  <p>n8n itself is free if you self-host it. Your running cost is Meta's per-conversation pricing on the Cloud API, which is modest at small-business volumes, plus wherever you host n8n. There is no per-message platform fee on top.</p>
+
+  
+  <h2>Related guides</h2>
+  <ul>
+    <li><a href="/guides/what-is-n8n/">What is n8n? A beginner's guide</a></li>
+    <li><a href="/guides/how-to-set-up-whatsapp-cloud-api/">How to set up WhatsApp Cloud API, step by step</a></li>
+    <li><a href="/guides/ai-chatbot-for-small-business/">AI chatbot for a small business: options and real costs</a></li>
+    <li><a href="/sovereign/">Sovereign — AI WhatsApp sales employee for real estate agencies</a></li>
+  </ul>
 
   <div class="cta-box">
     <p><strong>WhatsAppKit — $49, one time</strong></p>
