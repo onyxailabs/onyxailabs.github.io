@@ -66,6 +66,38 @@ footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 
 .foot-links{display:flex;gap:22px;flex-wrap:wrap}
 .copyright{max-width:var(--max);margin:26px auto 0;padding-top:18px;border-top:1px solid var(--line);color:#6d7199;font-size:13px}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is MCP free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The protocol is an open standard, the official filesystem server is free, and the Inspector is free. Costs only enter the picture if you later choose paid servers, paid AI apps or hosted infrastructure — the setup in this guide uses none of them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to let an AI read my files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is as safe as the boundary you set. The server can only reach the folders in its arguments, and outside paths are refused — which you proved yourself in Step 4. Keep the boundary small, start with harmless files, and remember the toolbox includes writing tools, so treat real folders with the same care you would give any powerful utility."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is MCP different from a plugin or an API key?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An API key authorises calls to one company's service. MCP is a shared language that lets many different tools — files, databases, calendars, the web — plug into many different AI apps the same way. One protocol, many servers, instead of a separate integration for every pair."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -147,6 +179,14 @@ footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 
   <p>It is as safe as the boundary you set. The server can only reach the folders in its arguments, and outside paths are refused — which you proved yourself in Step 4. Keep the boundary small, start with harmless files, and remember the toolbox includes writing tools, so treat real folders with the same care you would give any powerful utility.</p>
   <h3>How is MCP different from a plugin or an API key?</h3>
   <p>An API key authorises calls to one company's service. MCP is a shared language that lets many different tools — files, databases, calendars, the web — plug into many different AI apps the same way. One protocol, many servers, instead of a separate integration for every pair.</p>
+
+  
+  <h2>Related guides</h2>
+  <ul>
+    <li><a href="/guides/how-to-get-a-youtube-api-key/">How to get a YouTube API key, step by step</a></li>
+    <li><a href="/guides/what-is-n8n/">What is n8n? A beginner's guide</a></li>
+    <li><a href="/guides/automate-small-business-with-ai/">How to automate a small business with AI</a></li>
+  </ul>
 
   <div class="cta-box">
     <p><strong>Watch it done live</strong></p>
