@@ -94,6 +94,14 @@ footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 
         "@type": "Answer",
         "text": "Sometimes, through migration, but the simplest and most reliable route is a separate number for the API that is not active in the WhatsApp app. Whichever route you choose, do it before printing the number anywhere, because changing it later means re-verifying."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Do my customers have to opt in before I can message them on WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, for messages you start. WhatsApp requires customers to opt in before a business sends them template messages, and marketing messages need explicit opt-in. When a customer messages you first, a 24-hour window opens in which you can reply freely; after it closes, you can only reach them with an approved template message. Build opt-in into your signup, checkout, or first conversation — buying lists and messaging strangers gets numbers banned."
+      }
     }
   ]
 }
@@ -145,6 +153,7 @@ footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 
   <p>Here is the step most tutorials skip, and the one that decides whether your setup can actually scale. Meta requires <strong>business verification</strong> for full production access — higher messaging limits, an official business profile, and the ability to message beyond small-scale testing. Verification happens in Business Settings under <strong>Security Centre</strong>, and Meta asks for documents in two areas: proof of the business's legal name, and proof of its address or phone number.</p>
   <p>The document types Meta accepts for these slots are: a <strong>business registration or business licence</strong>, a <strong>tax document</strong> issued by a tax authority, a <strong>certificate of incorporation or articles of association</strong>, and a <strong>utility bill</strong> showing the business name and address. One detail matters enormously and is easy to get wrong: <strong>a bank statement is not accepted for the address slot</strong>, even though it may show your name. If your only address document is a bank statement, verification will stall — arrange one of the accepted document types in the business's own name before you start the process.</p>
   <p>Until verification is complete, your WhatsApp Business account can sit in a restricted state: the test setup still works, but production messaging is limited and can fail with errors that simply mean "this business is not verified yet." That is a paperwork problem, not a technical one — no tool, kit or workaround removes it, and anyone who promises to bypass Meta verification is selling you a ban risk.</p>
+  <p>Once verification is done, the next step is the automation itself. <a href="https://onyxailabs.gumroad.com/l/whatsappkit" target="_blank" rel="noopener">WhatsAppKit ($49 one-time)</a> ships the four ready-to-run n8n workflows — order bot, AI lead qualifier, FAQ auto-reply and opt-in broadcast — for your own number, with a START-HERE guide and a 14-day money-back guarantee.</p>
 
   <h2>Honest limits — what to watch out for</h2>
   <ul>
@@ -162,6 +171,8 @@ footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 
   <p>The usual reasons are that the document type is not on Meta's accepted list (a bank statement in the address slot is the classic case), the business name or address on the document does not match your business portfolio, or the scan is unreadable. Fix the mismatch, use an accepted document type, and resubmit — do not submit the same rejected document again.</p>
   <h3>Can I use my existing WhatsApp number?</h3>
   <p>Sometimes, through migration, but the simplest and most reliable route is a separate number for the API that is not active in the WhatsApp app. Whichever route you choose, do it before printing the number anywhere, because changing it later means re-verifying.</p>
+  <h3>Do my customers have to opt in before I can message them on WhatsApp?</h3>
+  <p>Yes, for messages you start. WhatsApp requires customers to opt in before a business sends them template messages, and marketing messages need explicit opt-in. When a customer messages you first, a 24-hour window opens in which you can reply freely; after it closes, you can only reach them with an approved template message. Build opt-in into your signup, checkout, or first conversation — buying lists and messaging strangers gets numbers banned.</p>
 
   
   <h2>Related guides</h2>
@@ -174,6 +185,7 @@ footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 
   <div class="cta-box">
     <p><strong>Set up — now what?</strong></p>
     <p>Once your number works, the useful part begins: connecting it to workflows that answer customers for you. Our guide to <a href="/guides/whatsapp-automation-with-n8n/">WhatsApp automation with n8n</a> explains the building blocks, and <a href="/guides/automate-small-business-with-ai/">how to automate a small business with AI</a> shows five playbooks this setup makes possible.</p>
+    <p><strong>Skip the build:</strong> <a href="https://onyxailabs.gumroad.com/l/whatsappkit" target="_blank" rel="noopener">WhatsAppKit — $49 one-time</a> ships the four WhatsApp workflows pre-built, with the full source and a START-HERE guide. 14-day money-back guarantee.</p>
     <p>More reading: browse <a href="/guides/">all guides</a>.</p>
   </div>
 </main>

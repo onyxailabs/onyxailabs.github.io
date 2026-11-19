@@ -16,6 +16,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://onyxailabs.me/onyxpdf/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://onyxailabs.me/about/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

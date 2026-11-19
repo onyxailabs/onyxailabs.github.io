@@ -94,6 +94,14 @@ footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 
         "@type": "Answer",
         "text": "Constrain it to your own material, log every conversation, and review the log weekly at first. Wrong answers almost always trace back to a gap in the material you supplied or a missing handover rule — both fixable, both your builder's job to surface rather than hide."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a WhatsApp chatbot cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A WhatsApp chatbot has three running costs: Meta's per-conversation fees on the WhatsApp Business Platform, the AI usage for each conversation, and hosting for the bot itself. Meta's fees vary by country and message category; AI and hosting stay small at small-business volumes. There is no genuinely free production chatbot — any \"free\" option moves the cost somewhere else, usually into a monthly platform subscription. Before you buy anything, ask the vendor to state all three costs in writing."
+      }
     }
   ]
 }
@@ -142,7 +150,7 @@ footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 
   <h3>Route 1 — No-code chatbot platforms</h3>
   <p>Services such as ManyChat and Landbot (and similar builders) let you assemble a bot from templates with drag-and-drop flows and a built-in AI answer feature. Fastest to start, least flexible, and priced as a monthly subscription that grows with your contact count. A good fit when your needs are standard and your time is scarcer than your budget.</p>
   <h3>Route 2 — Custom build on n8n</h3>
-  <p>A workflow tool such as <a href="/guides/what-is-n8n/">n8n</a> connects the channel (WhatsApp or your website) to your own data and an AI model, with rules you control: which questions it may answer, where answers come from, and when a human takes over. More setup work, no per-contact rent, and the system is yours — it runs on your server and can be self-hosted. This is the route we build at Onyx AI Labs, and our <a href="/guides/whatsapp-automation-with-n8n/">WhatsApp automation with n8n</a> guide walks through its building blocks honestly.</p>
+  <p>A workflow tool such as <a href="/guides/what-is-n8n/">n8n</a> connects the channel (WhatsApp or your website) to your own data and an AI model, with rules you control: which questions it may answer, where answers come from, and when a human takes over. More setup work, no per-contact rent, and the system is yours — it runs on your server and can be self-hosted. This is the route we build at Onyx AI Labs, and our <a href="/guides/whatsapp-automation-with-n8n/">WhatsApp automation with n8n</a> guide walks through its building blocks honestly. If you want that route pre-built, <a href="https://onyxailabs.gumroad.com/l/agentkit" target="_blank" rel="noopener">AgentKit ($59 one-time)</a> ships five ready-to-run n8n AI agents, including the WhatsApp chatbot with human handover.</p>
   <h3>Route 3 — Done-for-you</h3>
   <p>An agency or freelancer builds and maintains the bot for you. You pay for setup and usually a care retainer. This is reasonable if the contract leaves you owning the number, the accounts and the data — see the vendor questions below — and unreasonable the moment the bot lives entirely inside their accounts, because leaving them then means losing it.</p>
 
@@ -169,6 +177,8 @@ footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 
   <p>A template-based website widget can be live the same day. A WhatsApp bot with your own number typically takes days rather than hours, because Meta's steps — number registration, template approval and, for full access, business verification — run on Meta's clock, not your builder's.</p>
   <h3>What if the bot gives a wrong answer?</h3>
   <p>Constrain it to your own material, log every conversation, and review the log weekly at first. Wrong answers almost always trace back to a gap in the material you supplied or a missing handover rule — both fixable, both your builder's job to surface rather than hide.</p>
+  <h3>How much does a WhatsApp chatbot cost?</h3>
+  <p>A WhatsApp chatbot has three running costs: Meta's per-conversation fees on the WhatsApp Business Platform, the AI usage for each conversation, and hosting for the bot itself. Meta's fees vary by country and message category; AI and hosting stay small at small-business volumes. There is no genuinely free production chatbot — any "free" option moves the cost somewhere else, usually into a monthly platform subscription. Before you buy anything, ask the vendor to state all three costs in writing.</p>
 
   
   <h2>Related guides</h2>
@@ -181,6 +191,7 @@ footer{border-top:1px solid var(--line);background:rgba(5,6,15,.9);padding:40px 
   <div class="cta-box">
     <p><strong>Thinking it through for your business?</strong></p>
     <p>Start with the playbooks in <a href="/guides/automate-small-business-with-ai/">how to automate a small business with AI</a> — pick the one repetitive conversation your business has most, and let that be the bot's first job.</p>
+    <p><strong>Skip the build:</strong> <a href="https://onyxailabs.gumroad.com/l/agentkit" target="_blank" rel="noopener">AgentKit — $59 one-time</a> ships five ready-to-run n8n AI agents with human handover built in. Pay once, own forever, 14-day money-back guarantee.</p>
     <p>More reading: browse <a href="/guides/">all guides</a>.</p>
   </div>
 </main>
